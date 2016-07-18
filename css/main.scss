@@ -198,5 +198,16 @@ body > header .fa{
 	    line-height: 100%;
 	    width: 295px;
 	    margin: 0 auto;
+	    background-color: transparent;
+	    border: medium none;
+	    border-radius: 0;
+	    position: relative;
+	    right: 0;
+	    text-align: center;
+	    top: 0;
+	}
+
+	#typedIntro h1 {
+	    font-size: 4vw;
 	}
 }
