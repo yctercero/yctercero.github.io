@@ -193,12 +193,23 @@ body > header .fa{
 	}
 
 @media screen and (max-width: 595px) {
+	body{
+		font-size: 16px;
+	}
+	body > header {
+	    padding: 15px 0;
+	}
 	.headshot{
-		display: block;
-		border-radius: 50%;
-		margin: 0 auto 30px;
+		margin: 0 auto 15px;
 		width: 75px;
 		height: 75px;
-		border: 1px solid white;
+	}
+	#typedIntro h1{
+	    font-size: 5.8vw;
+	}
+
+	header nav ul li a {
+	    font-size: 16px;
+	    padding: 8px 20px;
 	}
 }
