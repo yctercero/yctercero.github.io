@@ -193,21 +193,12 @@ body > header .fa{
 	}
 
 @media screen and (max-width: 595px) {
-	header .site-nav {
-	    float: none;
-	    line-height: 100%;
-	    width: 295px;
-	    margin: 0 auto;
-	    background-color: transparent;
-	    border: medium none;
-	    border-radius: 0;
-	    position: relative;
-	    right: 0;
-	    text-align: center;
-	    top: 0;
-	}
-
-	#typedIntro h1 {
-	    font-size: 4vw;
+	.headshot{
+		display: block;
+		border-radius: 50%;
+		margin: 0 auto 30px;
+		width: 75px;
+		height: 75px;
+		border: 1px solid white;
 	}
 }
