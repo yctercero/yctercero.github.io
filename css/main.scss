@@ -191,3 +191,12 @@ body > header .fa{
 	body > header li a:hover .fa{
 		color: #e53131;
 	}
+
+@media screen and (max-width: 595px) {
+	header .site-nav {
+	    float: none;
+	    line-height: 100%;
+	    width: 295px;
+	    margin: 0 auto;
+	}
+}
