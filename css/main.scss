@@ -192,6 +192,10 @@ body > header .fa{
 		color: #e53131;
 	}
 
+.social-media-list li:nth-of-type(2) a span {
+    font-size: 9px;
+}
+
 @media screen and (max-width: 595px) {
 	body{
 		font-size: 16px;
