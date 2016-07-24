@@ -220,6 +220,11 @@ body > header .fa{
   float: right;
 }
 
+.share-page{
+  width: 200px;
+  margin: 0 auto;
+}
+
 .share-page .fa{
   color: #999;
 }
@@ -227,6 +232,7 @@ body > header .fa{
 .share-page li{
   float: left;
   width: 50px;
+  text-align: center;
 }
 
 
