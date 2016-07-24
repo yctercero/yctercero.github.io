@@ -9,7 +9,7 @@
 title: Code Happens
 email: ytp@yadayadacreative.com
 description: > # this means to ignore newlines until "baseurl:"
-  HackReactor Student | Traveler | Little Sister | Geographically Confused | Dog Parent |
+  HackReactor Student | Programmer | Traveler | Little Sister | Geographically Confused | Dog Parent
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://yctercero.github.io" # the base hostname & protocol for your site
 github_username:  yctercero
