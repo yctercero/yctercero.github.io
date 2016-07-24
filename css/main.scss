@@ -188,7 +188,7 @@ body > header .fa{
 	color: white;
 	transition: color 0.4s ease-out 0s, background 0.4s ease-in 0s;
 }
-	body > header li a:hover .fa{
+	body > header li a:hover .fa, .share-page li a:hover .fa{
 		color: #e53131;
 	}
 
