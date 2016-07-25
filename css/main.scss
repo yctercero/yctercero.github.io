@@ -156,6 +156,9 @@ header .site-nav {
     text-align: center;
     text-transform: uppercase;
 }
+body > header nav ul{
+  list-style-type: none;
+}
 body > header nav ul li{
 	float: left;
 	text-align: center;
