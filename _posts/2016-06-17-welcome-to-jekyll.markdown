@@ -1,10 +1,12 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
-date:   2016-06-17 21:40:47 -0400
-categories: jekyll update
+title:  "HackReactor-Eve"
+date:   2016-07-24 18:51:47 -0400
+categories: welcome hackreactor
 ---
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+Day one of HackReactor is hours away. The next three months will be intense and I look forward to the knowledge dump that is about to start. In an effort to quell my nerves (and appease the hypochondriac in me) after numerous google searches and WEB MD lookups, I'm officially diagnosing myself with imposter syndrome. To fellow classmates/future HackReactor-ers, the upside here is that we imposter syndrome sufferers are far from alone...though the downside is that the most common cause is being human.
+
+![http://www.newyorker.com/cartoons/random/](/downloads/nycartoon.png){:class="img-responsive"}
 
 To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
 
