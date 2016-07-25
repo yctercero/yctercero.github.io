@@ -103,7 +103,7 @@ a{
 blockquote, q {
 	quotes: none;
 }
-.clearfix:after{
+.clearfix:after, .readmore:after{
 	clear: both;
 	content: " ";
 	height: 0;
@@ -121,11 +121,8 @@ h3{
     margin-bottom: 30px;
     text-transform: uppercase;
 }
-
-.readmore::after{
-  clear: both;
-  display: block;
-  content: ' ';
+p{
+  margin-bottom: 10px;
 }
 
 
