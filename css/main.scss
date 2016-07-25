@@ -89,12 +89,8 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: normal;
 	font-family: 'Open Sans', sans-serif;
-	font-size: 20px;
+	font-size: 18px;
 	font-weight: lighter;
-}
-
-ol, ul {
-	list-style: none;
 }
 a{
 	text-decoration: none;
@@ -226,6 +222,10 @@ body > header .fa{
 .share-page{
   width: 200px;
   margin: 0 auto;
+}
+
+.share-page ul{
+  list-style-type: none;
 }
 
 .share-page .fa{
