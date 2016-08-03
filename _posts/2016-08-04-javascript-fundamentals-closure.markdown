@@ -5,7 +5,9 @@ date:   2016-08-04 22:10:47 -0400
 categories: hackreactor javascript scope lexical in-memory closure
 ---
 
-This is a continuation of my previous post on fundamentals. JavaScript is a pretty unique and quite flexible language. As a result, it can sometimes feel magical - some things just work and you’re not quite sure why. <!--excerpt-->Or maybe what you thought should work doesn’t and you find yourself doing some brute force debugging. This is by no means a comprehensive list, but they are some fundamentals that may give you more insight as to the inner workings of JS.
+This is a continuation of my previous post on fundamentals.
+
+Like I mentioned in the previous post, JavaScript is a pretty unique and quite flexible language. As a result, it can sometimes feel magical - some things just work and you’re not quite sure why. <!--excerpt-->Or maybe what you thought should work doesn’t and you find yourself doing some brute force debugging. This is by no means a comprehensive list, but they are some fundamentals that may give you more insight as to the inner workings of JS.
 
 At the end of the post on scope, I left you with the below problem and asked what would get console logged.
 
