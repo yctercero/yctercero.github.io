@@ -121,8 +121,6 @@ function a(){
     return function b(){
       console.log(example);
     }
-    b();
-    b();
 }
 
 var example = 1;
