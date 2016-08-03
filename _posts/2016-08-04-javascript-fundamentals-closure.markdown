@@ -93,4 +93,6 @@ a()
 
 ![/downloads/closure5.png](/downloads/closure5.png){:class="img-responsive"}
 
-A closure was necessary in the first instance (Figure 2) because when b() was invoked, a()’s execution context was no longer ‘on’ the stack. No closure is needed in Figure 5 between a() and the global environment because there is no danger that the global context would be popped off before the invocation of a(). May call for some more research!
+A closure was necessary in the first instance (Figure 2) because when b() was invoked, a()’s execution context was no longer ‘on’ the stack. No closure is needed in Figure 5 between a() and the global environment because there is no danger that the global context would be popped off before the invocation of a().
+
+May call for some more research!
