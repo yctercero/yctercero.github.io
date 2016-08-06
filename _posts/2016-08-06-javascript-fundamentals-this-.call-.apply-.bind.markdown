@@ -13,7 +13,7 @@ The keyword ‘this’ can, at times, feel impossible to understand. Before unde
 
 Let’s dive in.
 
-###‘this’ and the Global Object
+### ‘this’ and the Global Object
 
 When you run your code, a global execution context is created that includes a global object, and a binding for ‘this’. Let’s say we have an empty document and all we add is
 
@@ -33,7 +33,7 @@ As you might imagine, calling ‘this’ by itself in the global scope (that is,
 
 You can also now see what’s meant when people say that variables, functions and objects created within the global scope are added to the global object.
 
-###‘this’ and Functions/Methods
+### ‘this’ and Functions/Methods
 
 **Functions**
 Above we saw that when you run your code, a global execution context is created with a global object and access to the ‘this’ keyword. Similarly, each time a function is invoked and a new execution context is created, we are given access to the ‘this’ keyword. When I say that we are ‘given access’ I mean that the keyword ‘this’ is not something we ourselves have to declare or create.
@@ -146,7 +146,7 @@ console.log(a.fruit) //Logs 'Actually, I like apples'
 We saw that from within ‘method’, ‘this’ is bound to the ‘a’ object, so we can store that reference in a variable (var that). Because of lexical scoping (link to post on scope), apples() will have access to the variable ‘that’ and can now use it within to access and modify the properties on the ‘a’ object.
 
 
-###‘this’ and Constructors
+### ‘this’ and Constructors
 
 Object constructors can be thought of as functions that contain the parts necessary to create numerous instances of an object with shared methods. An easy tell for identifying object constructors are that the first letter is capitalized.
 
@@ -183,7 +183,7 @@ var Phone = function(memory, color, frontCamera, backCamera){
 
 So, when invoking an object constructor, the keyword ‘this’ refers to an empty object that is created in the background by JS when you use the ‘new’ keyword. It then proceeds to assign the properties - in this case, those properties include memory, color, frontCamera, and backCamera.
 
-###.call() & .apply()
+### .call() & .apply()
 
 You may or may not have noticed that all functions have access to these three methods - .call(), .apply(), and .bind(). So what are they for?
 
@@ -219,7 +219,7 @@ greeting.apply(dog, [“Roo”, “Parker”]); // 'Woof, my name is Roo Parker 
 
 That’s it!
 
-###Bound Functions
+### Bound Functions
 
 The .bind() function is a bit trickier than .call() and .apply(). The .bind() function creates an anonymous function that sets the value of the ‘this’ keyword as the first parameter passed in. This may make more sense when we look at some examples.
 
@@ -282,7 +282,7 @@ Hopefully by now you’re able to see two important unique qualities to .bind():
 2. .bind() creates an anonymous function that assigns the value of the ‘this’ keyword as the first parameter passed in
 
 
-####Takeaway
+#### Takeaway
 That was a lot of info so let’s sum it up:
 - ‘this’ used on the global object or within a free function is bound to the window at call time
 - ‘this’ used inside a constructor is bound to the object created in the background by JS when you use the ‘new’ keyword to instantiate an object
