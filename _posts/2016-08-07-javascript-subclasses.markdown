@@ -156,7 +156,7 @@ That was a whole lot - let's do a quick summary:
 3. Subclasses are unable to change the values of properties on the superclasses, but are able to mask them by writing a property of their own with the same name.
 4. Instances of both supercalsses and subclasses are able to delegate method lookup through the prototype chain.
 5. When writing 'Child.prototype = Object.create(Parent.prototype)' we are pointing 'Child()''s .prototype to the 'Parent()' .prototype.
-6. So what? It means we end up writing a whole lot less code than we otherwise would have.
+6. So what? It means we end up writing a whole lot less code than we otherwise would have, and using the prototype chain, each instatiation can delegate its method lookups instead of replicating methods.
 
 
 
