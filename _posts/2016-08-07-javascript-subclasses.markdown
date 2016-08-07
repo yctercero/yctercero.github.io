@@ -39,7 +39,7 @@ We could use it to create a bunch of little walking, talking beings:
 
 {% highlight javascript %}
   var jim = new Being("Jim", "tall");
-  var dwight = new Being("Dwight", "beat farmer");
+  var dwight = new Being("Dwight", "beet farmer");
 {% endhighlight %}
 
 Pretty boring. Well, what if we use 'Being()' as the parent class to build out a few of the different Lord of the Rings characters? Hobbits also move, eat, and speak, but they also have some pretty unique characteristics. How could we have it so that our Hobbits have the properties and methods of 'Being()' plus more? We use subclassing.
