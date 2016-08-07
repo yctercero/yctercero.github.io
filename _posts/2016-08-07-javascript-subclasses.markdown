@@ -147,11 +147,11 @@ Fallohides.prototype.swim = function(){
 
 That was a whole lot - let's do a quick summary:
 
-1. Superclasses, like 'Being', hold default properties and methods that will be able to be shared with subclasses, like 'Hobbit'
-2. Subclasses are able to inherit properties and methods from their superclass, while also creating properties and methods unique to only them
-3. Subclasses are unable to change the values of properties on the superclasses, but are able to mask them by writing a property of their own with the same name
-4. Instances of both supercalsses and subclasses are able to delegate method lookup through the prototype chain
-5. When writing 'Child.prototype = Object.create(Parent.prototype)' we are pointing 'Child''s prototype to the 'Parent' prototype
+1. Superclasses, like 'Being', hold default properties and methods that will be able to be shared with subclasses, like 'Hobbit'.
+2. Subclasses are able to inherit properties and methods from their superclass, while also creating properties and methods unique to only them.
+3. Subclasses are unable to change the values of properties on the superclasses, but are able to mask them by writing a property of their own with the same name.
+4. Instances of both supercalsses and subclasses are able to delegate method lookup through the prototype chain.
+5. When writing 'Child.prototype = Object.create(Parent.prototype)' we are pointing 'Child''s prototype to the 'Parent' prototype.
 
 
 
