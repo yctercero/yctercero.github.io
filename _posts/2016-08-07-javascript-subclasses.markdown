@@ -13,7 +13,7 @@ A previous HackReactor student wrote a really great blog introducing the [differ
 
 Keep in mind that with each of the four different instatiation patterns - functional, functional-shared, prototypal, and pseudoclassical - the goal remains the same, but the method used to get there is what differs. From what I have gathered, there is no wrong or right way, but there are strong preferences and some, like prototypal and pseudoclassical, make better use of the unique characteristics of JavaScript.
 
-Below, we'll be using pseudoclassical inheritance in discussing subclasses.
+Below, we'll be using the pseudoclassical instatiation pattern in discussing subclasses.
 
 Let's geek out.
 
