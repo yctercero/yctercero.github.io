@@ -9,7 +9,7 @@ When we talk about classes and subclasses, what are we talking about usually? In
 
 Before reading up on subclasses, it is helpful to understand how classes/constructors work. Essentially, they allow you to build multiple objects with similar properties and methods. If you're coming from a different language, it's important to know that classes in JavaScript are a bit unique (even with the new class keyword in ES6).
 
-A previous HackReactor student wrote a really great blog introducing the [different implementations of classes]. It even includes a graphic with side by side comparisons of each. I suggest that before reading on about subclasses you take a look at his post.
+A previous HackReactor student wrote a really great blog introducing the [different implementations of functional classes]. It even includes a graphic with side by side comparisons of each. I suggest that before reading on about subclasses you take a look at his post.
 
 Keep in mind that with each of the four different constructors - functional, functional-shared, prototypal, and pseudoclassical - the goal remains the same, but the method used to get there is what differs. From what I have gathered, there is no wrong or right way, but there are strong preferences and some, like prototypal and pseudoclassical, make better use of the unique characteristics of JavaScript.
 
@@ -228,6 +228,6 @@ Below is the code all together:
 
 
 
-[different implementations of classes]: http://www.ryanatkinson.io/javascript-instantiation-patterns/
+[different implementations of functional classes]: http://www.ryanatkinson.io/javascript-instantiation-patterns/
 [prototype chain]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain#Inheritance_with_the_prototype_chain
 [.call]: https://yctercero.github.io/hackreactor/javascript/this/.call/.bind/.apply/2016/08/06/javascript-fundamentals-this-.call-.apply-.bind.html
