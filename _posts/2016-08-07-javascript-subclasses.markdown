@@ -65,11 +65,11 @@ Pretty boring. Well, what if we use 'Being()' as the parent class to build out a
 
 Let's explore the above code a bit more to understand what is happening.
 
-On line 1 we are declaring our 'Hobbit' constructor (remember that it is common practice to capitalize the first letter of your constructor). We are also passing in two arguments - 'name' and 'characteristic'.
+On line 1 we are declaring our 'Hobbit()' constructor (remember that it is common practice to capitalize the first letter of your constructor). We are also passing in two arguments - 'name' and 'characteristic'.
 
-On line 2 it looks like something kinda funky's happening. Remember we said that we wanted 'Hobbit' to have some of the same properties as 'Being'. So we could have gone ahead and rewritten those properties within 'Hobbit' ourselves. But that's not efficient, especially if we had 50 different properties to rewrite. The [.call] method allows us to invoke 'Being' while binding the keyword 'this' to the object returned by 'Hobbit'.
+On line 2 it looks like something kinda funky's happening. Remember we said that we wanted 'Hobbit()' to have some of the same properties as 'Being()'. So we could have gone ahead and rewritten those properties within 'Hobbit()' ourselves. But that's not efficient, especially if we had 50 different properties to rewrite. The [.call] method allows us to invoke 'Being()' while binding the keyword 'this' to the object returned by 'Hobbit()'.
 
-Remember that when we instantiate an object using the 'new' keyword, like we would with 'Hobbit', in the background 'this' is assigned to a new empty object that later gets returned. That is precisely what we are passing through when we write 'Being.call(this, name, characteristics)'.
+Remember that when we instantiate an object using the 'new' keyword, like we would with 'Hobbit()', in the background 'this' is assigned to a new empty object that later gets returned. That is precisely what we are passing through when we write 'Being.call(this, name, characteristics)'.
 
 {% highlight javascript %}
 var Hobbit = function(name, characteristic){ // 1
@@ -91,11 +91,11 @@ Line 5 is a bit more interesting:
 Hobbit.prototype = Object.create(Being.prototype); // 5
 {% endhighlight %}
 
-Constructors come with a special '.prototype' property that stores methods each new instance will have reference to via the [prototype chain]. Were we to try to call 'bilbo.move()' we would get an error. While 'Hobbit' is now able to inherit properties from 'Being', we have not established any other relation.
+Constructors come with a special '.prototype' property that stores methods each new instance will have reference to via the [prototype chain]. Were we to try to call 'bilbo.move()' we would get an error. While 'Hobbit()' is now able to inherit properties from 'Being()', we have not established any other relation.
 
-On line 5, 'Object.create(Being.prototype)' creates a new object whose own prototype is 'Being.prototype'. Now when we call bilbo.move() it will first look to see if bilbo itself has a '.move()' method, and since it does not, it looks down the prototype chain and sees '.move()' on 'Being' - bilbo is now able to move!
+On line 5, 'Object.create(Being.prototype)' creates a new object whose own prototype is 'Being.prototype'. Now when we call bilbo.move() it will first look to see if bilbo itself has a '.move()' method, and since it does not, it looks down the prototype chain and sees '.move()' on 'Being' - 'bilbo' is now able to move!
 
-Remember I mentioned that all constructors come with a special '.prototype' property? Well, that prototype property itself contains a '.constructor' property that stores a reference to the constructor that was used to instantiate that object. After line 5, 'Hobbit''s '.constructor' property was overwritten.
+Remember I mentioned that all constructors come with a special '.prototype' property? Well, that prototype property itself contains a '.constructor' property that stores a reference to the constructor that was used to instantiate that object. After line 5, 'Hobbit''s '.constructor' property was overwritten. It looks down the prototype chain and finds 'Being()''s '.constructor' property:
 
 {% highlight javascript %}
   console.log(bilbo.constructor); // gives us 'Being'
@@ -147,6 +147,8 @@ We could go on and on creating more subclasses (like types of Hobbits!):
 {% endhighlight %}
 
 
+### Summary
+
 That was a whole lot - let's do a quick summary:
 
 1. Superclasses, like 'Being()', hold default properties and methods that will be able to be shared with subclasses, like 'Hobbit()'.
@@ -154,6 +156,7 @@ That was a whole lot - let's do a quick summary:
 3. Subclasses are unable to change the values of properties on the superclasses, but are able to mask them by writing a property of their own with the same name.
 4. Instances of both supercalsses and subclasses are able to delegate method lookup through the prototype chain.
 5. When writing 'Child.prototype = Object.create(Parent.prototype)' we are pointing 'Child()''s .prototype to the 'Parent()' .prototype.
+6. So what? It means we end up writing a whole lot less code than we otherwise would have.
 
 
 
