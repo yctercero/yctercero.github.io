@@ -228,6 +228,6 @@ Below is the code all together:
 
 
 
-[blog introducing the different implementations of classes]: http://www.ryanatkinson.io/javascript-instantiation-patterns/
+[different implementations of classes]: http://www.ryanatkinson.io/javascript-instantiation-patterns/
 [prototype chain]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain#Inheritance_with_the_prototype_chain
 [.call]: https://yctercero.github.io/hackreactor/javascript/this/.call/.bind/.apply/2016/08/06/javascript-fundamentals-this-.call-.apply-.bind.html
