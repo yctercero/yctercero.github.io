@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "JavaScript Fundamentals - 'this', .call, .apply, and .bind"
-date:   2016-08-06 17:10:47 -0400
+date:   2016-08-06 17:10:47 -0500
 categories: hackreactor javascript this .call .bind .apply
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "JavaScript Fundamentals - Scope"
-date:   2016-08-02 22:10:47 -0400
+date:   2016-08-02 22:10:47 -0500
 categories: hackreactor javascript scope lexical in-memory
 ---
 
