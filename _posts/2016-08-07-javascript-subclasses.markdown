@@ -20,19 +20,19 @@ Let's geek out.
 Right now, we have a constructor, 'Being()', with some properties and methods.
 
 {% highlight javascript %}
-var Being = function(name, characteristic){
-  this.name = name;
-  this.legs = 2;
-  this.arms = 2;
-  this.body = true;
-  this.characteristic = characteristic;
-}
+  var Being = function(name, characteristic){
+      this.name = name;
+      this.legs = 2;
+      this.arms = 2;
+      this.body = true;
+      this.characteristic = characteristic;
+  }
 
-Being.prototype.move = function(){};
-Being.prototype.eat = function(){};
-Being.prototype.speak = function(){
-  return "Hello";
-};
+  Being.prototype.move = function(){};
+  Being.prototype.eat = function(){};
+  Being.prototype.speak = function(){
+      return "Hello";
+  };
 {% endhighlight %}
 
 We could use it to create a bunch of little walking, talking beings:
@@ -45,29 +45,31 @@ We could use it to create a bunch of little walking, talking beings:
 Pretty boring. Well, what if we use 'Being()' as the parent class to build out a few of the different Lord of the Rings characters? Hobbits also move, eat, and speak, but they also have some pretty unique characteristics. How could we have it so that our Hobbits have the properties and methods of 'Being()' plus more? We use subclassing.
 
 {% highlight javascript %}
-var Hobbit = function(name, characteristic){ //1
-  Being.call(this, name, characteristic); // 2
-  this.height = "3' 5 in"; // 3
-  this.feet = 'hairy'; // 4
-}
+  var Hobbit = function(name, characteristic){ //1
+      Being.call(this, name, characteristic); // 2
+      this.height = "3' 5 in"; // 3
+      this.feet = 'hairy'; // 4
+  }
 
-Hobbit.prototype = Object.create(Being.prototype); // 5
-Hobbit.prototype.constructor = Hobbit; // 6
+  Hobbit.prototype = Object.create(Being.prototype); // 5
+  Hobbit.prototype.constructor = Hobbit; // 6
 
-Hobbit.prototype.goAdventure = function(){ // 7
-  return false;
-};
+  Hobbit.prototype.goAdventure = function(){ // 7
+      return false;
+  };
 
-Hobbit.prototype.smokePipe = function(){}; // 8
+  Hobbit.prototype.smokePipe = function(){}; // 8
 
-var bilbo = new Hobbit('bilbo', 'moody');
+  var bilbo = new Hobbit('bilbo', 'moody');
 {% endhighlight %}
 
 Let's explore the above code a bit more to understand what is happening.
 
-On line 1 we are declaring our 'Hobbit' constructor (remember that it is common practice to capitalize the first letter of your constructor). We are also passing in two arguments - name and characteristic.
+On line 1 we are declaring our 'Hobbit' constructor (remember that it is common practice to capitalize the first letter of your constructor). We are also passing in two arguments - 'name' and 'characteristic'.
 
-On line 2 it looks like something kinda funky's happening. Remember we said that we wanted 'Hobbit' to have some of the same properties as 'Being'. So we could have gone ahead and rewritten those properties within 'Hobbit' ourselves. But that's not efficient, especially if we had 50 different properties to rewrite. The [.call] method allows us to invoke 'Being' while binding the keyword 'this' to the object returned by 'Hobbit'. Remember that when we instantiate an object using the 'new' keyword, like we would with 'Hobbit', in the background 'this' is assigned to a new empty object that later gets returned. That is precisely what we are passing through when we write 'Being.call(this, name, characteristics)'.
+On line 2 it looks like something kinda funky's happening. Remember we said that we wanted 'Hobbit' to have some of the same properties as 'Being'. So we could have gone ahead and rewritten those properties within 'Hobbit' ourselves. But that's not efficient, especially if we had 50 different properties to rewrite. The [.call] method allows us to invoke 'Being' while binding the keyword 'this' to the object returned by 'Hobbit'.
+
+Remember that when we instantiate an object using the 'new' keyword, like we would with 'Hobbit', in the background 'this' is assigned to a new empty object that later gets returned. That is precisely what we are passing through when we write 'Being.call(this, name, characteristics)'.
 
 {% highlight javascript %}
 var Hobbit = function(name, characteristic){ // 1
@@ -89,69 +91,69 @@ Line 5 is a bit more interesting:
 Hobbit.prototype = Object.create(Being.prototype); // 5
 {% endhighlight %}
 
-Constructors (object functions) come with a special '.prototype' property that stores methods each new instance will have reference to via the [prototype chain]. Were we to try to call 'bilbo.move()' we would get an error. While 'Hobbit' is now able to inherit properties from 'Being', we have not established any other relation.
+Constructors come with a special '.prototype' property that stores methods each new instance will have reference to via the [prototype chain]. Were we to try to call 'bilbo.move()' we would get an error. While 'Hobbit' is now able to inherit properties from 'Being', we have not established any other relation.
 
-On line 5, 'Object.create(Being.prototype)' creates a new object whose own prototype is 'Being.prototype'. Now when we call bilbo.move() it will first look to see if bilbo itself has a .move method, and since it does not, it looks down the prototype chain and sees .move() on 'Being' - bilbo is now able to move!
+On line 5, 'Object.create(Being.prototype)' creates a new object whose own prototype is 'Being.prototype'. Now when we call bilbo.move() it will first look to see if bilbo itself has a '.move()' method, and since it does not, it looks down the prototype chain and sees '.move()' on 'Being' - bilbo is now able to move!
 
-Remember I mentioned that all constructors come with a special '.prototype' property? Well, that prototype property itself contains a '.constructor' property that stores a reference to the constructor that created the instance's prototype. After line 5, 'Hobbit's .constructor property was overwritten.
+Remember I mentioned that all constructors come with a special '.prototype' property? Well, that prototype property itself contains a '.constructor' property that stores a reference to the constructor that was used to instantiate that object. After line 5, 'Hobbit''s '.constructor' property was overwritten.
 
 {% highlight javascript %}
-bilbo.constructor(); // gives us 'Being'
+  console.log(bilbo.constructor); // gives us 'Being'
 {% endhighlight %}
 
-The above would suggest that bilbo was instantiated using 'Being', but that's not accurate. There's an easy fix, add the appropriate .constructor property back in:
+The above would suggest that 'bilbo' was instantiated using 'Being', but that's not accurate, we used 'Hobbit()'. There's an easy fix, add the appropriate '.constructor' property back in:
 
 {% highlight javascript %}
-Hobbit.prototype.constructor = Hobbit; // 6
+  Hobbit.prototype.constructor = Hobbit; // 6
 {% endhighlight %}
 
-Now when we call biblo.constructor() we will be able to see that 'bilbo' was instantiated using the 'Hobbit' constructor.
+Now when we log 'biblo.constructor' we will be able to see that 'bilbo' was instantiated using the 'Hobbit' constructor.
 
-Lastly, on lines 7 and 8 we are adding methods to the 'Hobbit.prototype' that will only be accessible to instances of 'Hobbit' (like bilbo).
+Lastly, on lines 7 and 8 we are adding methods to the 'Hobbit.prototype' that will only be accessible to instances of 'Hobbit' (like 'bilbo').
 
 {% highlight javascript %}
-Hobbit.prototype.goAdventure = function(){ // 7
-  return false;
-};
+  Hobbit.prototype.goAdventure = function(){ // 7
+      return false;
+  };
 
-Hobbit.prototype.smokePipe = function(){}; // 8
+  Hobbit.prototype.smokePipe = function(){}; // 8
 {% endhighlight %}
 
-We're almost done! What if we want instances of 'Hobbit' to speak but we want them to say more than just 'Hello' like it says on 'Being.prototype.speak()'? We can actually mask the '.speak' method on 'Being' by writing our own for 'Hobbit':
+We're almost done! What if we want instances of 'Hobbit()' to speak but we want them to say more than just 'Hello' like it says on 'Being.prototype.speak()'? We can actually mask the '.speak()' method on 'Being()' by writing our own for 'Hobbit()':
 
 {% highlight javascript %}
-Hobbit.prototype.speak = function(){
-  var formal = Being.prototype.speak(); // returns "Hello"
+  Hobbit.prototype.speak = function(){
+      var formal = Being.prototype.speak(); // returns "Hello"
 
-  return formal + " I'm from the Shire";
-};
+      return formal + " I'm from the Shire";
+  };
 
-bilbo.speak(); // 'Hello I'm from the Shire'
+  bilbo.speak(); // 'Hello I'm from the Shire'
 {% endhighlight %}
 
 We could go on and on creating more subclasses (like types of Hobbits!):
 
 {% highlight javascript %}
-var Fallohides = function(name, characteristic){
-  Hobbit.call(this, name, characteristic);
-}
+  var Fallohides = function(name, characteristic){
+      Hobbit.call(this, name, characteristic);
+  }
 
-Fallohides.prototype = Object.create(Hobbit.prototype);
-Fallohides.prototype.constructor = Fallohides;
+  Fallohides.prototype = Object.create(Hobbit.prototype);
+  Fallohides.prototype.constructor = Fallohides;
 
-Fallohides.prototype.swim = function(){
-  return "Unlike other hobbits, we like to swim";
-};
+  Fallohides.prototype.swim = function(){
+      return "Unlike other hobbits, we like to swim";
+  };
 {% endhighlight %}
 
 
 That was a whole lot - let's do a quick summary:
 
-1. Superclasses, like 'Being', hold default properties and methods that will be able to be shared with subclasses, like 'Hobbit'.
+1. Superclasses, like 'Being()', hold default properties and methods that will be able to be shared with subclasses, like 'Hobbit()'.
 2. Subclasses are able to inherit properties and methods from their superclass, while also creating properties and methods unique to only them.
 3. Subclasses are unable to change the values of properties on the superclasses, but are able to mask them by writing a property of their own with the same name.
 4. Instances of both supercalsses and subclasses are able to delegate method lookup through the prototype chain.
-5. When writing 'Child.prototype = Object.create(Parent.prototype)' we are pointing 'Child''s prototype to the 'Parent' prototype.
+5. When writing 'Child.prototype = Object.create(Parent.prototype)' we are pointing 'Child()''s .prototype to the 'Parent()' .prototype.
 
 
 
