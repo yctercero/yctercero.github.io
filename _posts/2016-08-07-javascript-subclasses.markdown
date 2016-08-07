@@ -173,7 +173,7 @@ Below is the code all together:
   };
 
   var jim = new Being("Jim", "tall");
-  var dwight = new Being("Dwight", "beat farmer");
+  var dwight = new Being("Dwight", "beet farmer");
   console.log(jim.speak()); // 'Hello'
   console.log(jim.constructor); // Being
 
