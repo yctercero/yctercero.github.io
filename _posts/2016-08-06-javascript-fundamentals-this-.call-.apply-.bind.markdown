@@ -286,12 +286,14 @@ var boundGreet = function(){
 {% endhighlight %}
 
 Hopefully by now you’re able to see two important unique qualities to .bind():
+
 1. bind() does not immediately invoke a method like .call and .apply
 2. bind() creates an anonymous function that assigns the value of the ‘this’ keyword as the first parameter passed in
 
 
 ### Takeaway
 That was a lot of info so let’s sum it up:
+
 1. ‘this’ used on the global object or within a free function is bound to the window at call time
 2. ‘this’ used inside a constructor is bound to the object created in the background by JS when you use the ‘new’ keyword to instantiate an object
 3. ‘this’ within methods is bound to what is to the left of the call time dot upon invocation of the method
