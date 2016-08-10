@@ -42,7 +42,7 @@ We could use it to create a bunch of little walking, talking beings:
   var dwight = new Being("Dwight", "beet farmer");
 {% endhighlight %}
 
-Pretty boring. Well, what if we use 'Being()' as the parent class to build out a few of the different Lord of the Rings characters? Hobbits also move, eat, and speak, but they also have some pretty unique characteristics. How could we have it so that our Hobbits have the properties and methods of 'Being()' plus more? We use subclassing.
+Pretty boring. Well, what if we use 'Being()' as the parent class to build out a few of the different Lord of the Rings characters? Hobbits also move, eat, and speak, but they also have some pretty unique characteristics. How could we have it so that our Hobbits have the same properties and access to the methods of 'Being()' plus more? We use subclassing.
 
 {% highlight javascript %}
   var Hobbit = function(name, characteristic){ //1
@@ -81,9 +81,9 @@ var Hobbit = function(name, characteristic){ // 1
 }
 {% endhighlight %}
 
-After calling line 2, our 'this' within 'Hobbit' that was previously an empty object now has the properties 'this.name = name', 'this.legs = 2', 'this.arms = 2', 'this.body = true', 'this.charachteristic = charachteristic'.
+After calling line 2, our 'this' within 'Hobbit()' that was previously an empty object now includes the properties 'this.name = name', 'this.legs = 2', 'this.arms = 2', 'this.body = true', 'this.charachteristic = charachteristic'.
 
-Lines 3 and 4 are pretty simple - we are adding a 'height' and 'feet' properties to our object.
+Lines 3 and 4 are pretty simple - we are adding a 'height' and 'feet' properties to our object. These two properties, 'height' and 'feet,' will be unique to objects instantiated using the 'Hobbit()' constructor.
 
 Line 5 is a bit more interesting:
 
@@ -91,9 +91,9 @@ Line 5 is a bit more interesting:
 Hobbit.prototype = Object.create(Being.prototype); // 5
 {% endhighlight %}
 
-Constructors come with a special '.prototype' property that stores methods each new instance will have reference to via the [prototype chain]. Were we to try to call 'bilbo.move()' we would get an error. While 'Hobbit()' is now able to inherit properties from 'Being()', we have not established any other relation.
+Constructors come with a special '.prototype' property that stores methods each new instance will have reference to via the [prototype chain]. Without line 5, were we to try to call bilbo.move(), we would get an error.
 
-On line 5, 'Object.create(Being.prototype)' creates a new object whose own prototype is 'Being.prototype'. Now when we call bilbo.move() it will first look to see if bilbo itself has a '.move()' method, and since it does not, it looks down the prototype chain and sees '.move()' on 'Being' - 'bilbo' is now able to move!
+On line 5, 'Object.create(Being.prototype)' creates a new object whose own prototype is 'Being.prototype'. That means that every instance of 'Hobbit()' will now be able to delegate it's methods first to it's own prototype, and if it doesn't find it there, it can look to see if the method exists in 'Being.prototype'. Now when we call 'bilbo.move()' it will first look to see if bilbo itself has a '.move()' method, and since it does not, it looks down the prototype chain and sees '.move()' on 'Being' - 'bilbo' is now able to move!
 
 Remember I mentioned that all constructors come with a special '.prototype' property? Well, that prototype property itself contains a '.constructor' property that stores a reference to the constructor that was used to instantiate that object. After line 5, 'Hobbit''s '.constructor' property was overwritten. It looks down the prototype chain and finds 'Being()''s '.constructor' property:
 
