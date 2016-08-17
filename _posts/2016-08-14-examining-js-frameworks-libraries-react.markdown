@@ -7,7 +7,7 @@ categories: javascript hackreactor react libraries frameworks
 
 You've probably heard all these framework/library names thrown around and wondered where the heck to start. In the next couple posts I am going to explore a couple of these frameworks/libraries by building a simple weather app with each one. <!--excerpt-->You may also be wondering why I'm being annoying and overslashing (frameworks/libraries). A framework usually provides an environment or structure you can build on, while a library provides you with tools you can build with.
 
-Quick disclaimer, this is not meant to be a tutorial. This past week at HackReactor we've doven into a couple of these frameworks/libraries and I thought that in addition to this helping me solidify my understanding of them, seeing example code can hopefully help others picking up these frameworks/libraries explore what makes each one unique and when/why you may want to use one over the other depending on your project.
+Quick disclaimer, this is not meant to be a tutorial. This past week at HackReactor we've dived into a couple of these frameworks/libraries and I thought that in addition to this helping me solidify my understanding of them, seeing example code can hopefully help others picking up these frameworks/libraries explore what makes each one unique and when/why you may want to use one over the other depending on your project. Let's get started with React below.
 
 React, unlike Backbone, is a library, not a framework. It's a toolkit that abstracts certain layers (namely the DOM) to make it easier to create interactive UIs. If you are wondering how it fits into MVC (Model View Component) frameworks, as it notes in the [documentation], "Many people choose to think of React as the V in MVC". React breaks down the user interface into components and subcomponents that render HTML. Instead of re-rendering the entire DOM everytime data changes, React is able to detect which parts of your DOM contain the changed data and re-render only those components.
 
@@ -89,7 +89,7 @@ We'll be creating each of our components using ES6 and [JSX]- it allows us to re
   };
 {% endhighlight %}
 
- Each of these components is returning some HTML to structure our app. You can probably start to see why React is popular - if you're a front-end developer, it probably all looks very familiar. Components are structured just as functions that return HTML and JSX allows you to write the HTML just as you normally would. Without it, our 'App' component would look more like this:
+ Each of these components is returning some HTML to structure our app. You can probably start to see why React is popular - if you're a front-end developer, it probably all looks very familiar. Components are structured as functions that return HTML, and JSX allows you to write the HTML just as you normally would. Without it, our 'App' component would look more like this:
 
 {% highlight jsx %}
   "use strict";
@@ -394,7 +394,7 @@ If this is confusing, use the browser's console. Set a breakpoint where 'getWeat
 
 ### Wrap Up
 
-This was a simple app, but hopefully you learned a bit about React from getting a glance at how I went about building it. For starters, while it can take a bit to wrap your head around what React offers and how, it's clear that it's a relatively straightforward library. Also, while React offers up some guidelines/best practices, it is ultimately up to you as to how you structure your app and it's states.
+This was a simple app, but hopefully you learned a bit about React from getting a glance at how I went about building it. For starters, while it can take a bit to wrap your head around what React offers and how, it's clear that it's a relatively straightforward library. Also, while React offers up some guidelines/best practices, it is ultimately up to you as to how you structure your app and its states.
 
 The benefits I see in using React is that it is well-documented, flexible, allows your apps to be scalable, and is easy to set up.
 
