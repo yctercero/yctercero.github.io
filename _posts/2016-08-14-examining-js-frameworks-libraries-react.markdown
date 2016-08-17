@@ -334,6 +334,66 @@ Now 'App' has access to 'gatherWeather()' and can invoke it anytime it needs to 
 
 What's with the 'this.setState()' method? Well, just as 'App' was able to access 'state' after we refactored it, it is also able to access 'setState()'. This method is used to update the info within 'state,' and React, once it sees 'setState()' was invoked, invokes the 'render()' method within 'App.js'. What's great is that you don't have to worry about then letting 'App''s children know that the data has changed, React does that for you.
 
+One last note here. Before we had initialized our sate with dummy data, but now that we have our API set up, we can go back and change that. Our 'App''s state will initiate as null, as there initially is no data before any API requests. So how would we get our first API request sent out?
+
+React offers a couple methods that check on whether components have been 'mounted' or rendered. I went ahead and used 'componentDidMount' which is invoked immediately after our 'App' component renders. Within 'componentDidMount' I asked that it invoke 'getWeather' and passed in a value for city of 'Boston'.
+
+**App.jsx**
+{% highlight jsx %}
+  class App extends React.Component{
+
+    constructor(props){   // 1
+        super(props);
+
+        this.state = {
+            'weeksData': null,
+            'todayData': null
+        }
+    }
+
+    componentDidMount(){    // 3
+        this.getWeather('Boston');
+    }
+
+    getWeather(city){   // 4
+        this.props.gatherWeather(city, (data) => {
+            this.setState({
+                'weeksData': data.list,
+                'todayData': data
+            });
+        })
+    }
+
+    render(){   // 2
+        if(this.state.weeksData && this.state.todayData){
+            return(
+                <div>
+                    <div>
+                        <Search getWeather={this.getWeather.bind(this)}/>
+                    </div>
+                    <div>
+                        <TodaysWeather today={this.state.todayData} />
+                        <WeeksWeather week={this.state.weeksData} />
+                    </div>
+              </div>
+        )
+      }else{
+          return (
+              <div>
+                  <div>
+                      <Search getWeather={this.getWeather.bind(this)}/>
+                  </div>
+              </div>
+          )
+      }
+
+    }
+
+  }
+{% endhighlight %}
+
+Let's run through what happens real quick. I've numbered each step above. (1) When we initializ 'App' we set our state to null as there's no data yet. (2) Within render we check to see if there is any data set in our state - if there is not then let's just render our search component. (3) 'App' component having been rendered, or mounted, 'componentDidMount' is invoked which in turn invokes 'getWeather('Boston'). (4) 'getWeather' shoots off an API request and we set our state with the new data that's come in. Calling 'setState' causes 'App' to re-render and seeing as we now have data available, we render all our components.
+
 As far as API integration goes - that was pretty seemless. We simply created a function, 'gatherWeather(),' to make API requests, passed access to the function to 'App' using 'props', and created a method within 'App' responsible for invoking 'gatherWeather()' and updating our 'state'.
 
 ### Adding Search
