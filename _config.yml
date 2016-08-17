@@ -17,9 +17,6 @@ github_username:  yctercero
 # Build settings
 markdown: kramdown
 
-paginate: 5
-paginate_path: "/blog/:num/"
-
 gems: [jekyll-paginate]
 
 excerpt_separator: "<!--excerpt-->"
