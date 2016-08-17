@@ -364,8 +364,8 @@ React offers a couple methods that check on whether components have been 'mounte
         })
     }
 
-    render(){   // 2
-        if(this.state.weeksData && this.state.todayData){
+    render(){
+        if(this.state.weeksData && this.state.todayData){  // 5
             return(
                 <div>
                     <div>
@@ -377,7 +377,7 @@ React offers a couple methods that check on whether components have been 'mounte
                     </div>
               </div>
         )
-      }else{
+      }else{  // 2
           return (
               <div>
                   <div>
@@ -392,7 +392,7 @@ React offers a couple methods that check on whether components have been 'mounte
   }
 {% endhighlight %}
 
-Let's run through what happens real quick. I've numbered each step above. (1) When we initializ 'App' we set our state to null as there's no data yet. (2) Within render we check to see if there is any data set in our state - if there is not then let's just render our search component. (3) 'App' component having been rendered, or mounted, 'componentDidMount' is invoked which in turn invokes 'getWeather('Boston'). (4) 'getWeather' shoots off an API request and we set our state with the new data that's come in. Calling 'setState' causes 'App' to re-render and seeing as we now have data available, we render all our components.
+Let's run through what happens real quick. I've numbered each step above. (1) When we initializ 'App' we set our state to null as there's no data yet. (2) Within render we check to see if there is any data set in our state - if there is not then let's just render our search component. (3) 'App' component having been rendered, or mounted, 'componentDidMount' is invoked which in turn invokes 'getWeather('Boston'). (4) 'getWeather' shoots off an API request and we set our state with the new data that's come in. (5) Calling 'setState' causes 'App' to re-render and seeing as we now have data available, we render all our components.
 
 As far as API integration goes - that was pretty seemless. We simply created a function, 'gatherWeather(),' to make API requests, passed access to the function to 'App' using 'props', and created a method within 'App' responsible for invoking 'gatherWeather()' and updating our 'state'.
 
