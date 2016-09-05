@@ -4,6 +4,7 @@ title:  "JavaScript Fundamentals - Scope"
 date:   2016-08-02 22:10:47 -0500
 categories: hackreactor javascript scope lexical in-memory
 comments: true
+permalink: /:title/
 ---
 
 JavaScript is a pretty unique and quite flexible language. As a result, it can sometimes feel magical - some things just work and you’re not quite sure why. Or maybe what you thought should work doesn’t and you find yourself doing some brute force debugging. <!--excerpt-->This is by no means a comprehensive list, but they are some fundamentals that may give you more insight as to the inner workings of JS.

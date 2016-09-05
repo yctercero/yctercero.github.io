@@ -3,6 +3,8 @@ layout: post
 title:  "JavaScript Fundamentals - Closure"
 date:   2016-08-04 22:10:47 -0400
 categories: hackreactor javascript scope lexical in-memory closure
+comments: true
+permalink: /:title/
 ---
 
 This is a continuation of my previous post on fundamentals.
