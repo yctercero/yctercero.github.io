@@ -3,6 +3,7 @@ layout: post
 title:  "JavaScript Pseudoclassical Subclasses"
 date:   2016-08-07 22:10:47 -0500
 categories: javascript hackreactor subclasses pseudoclassical inheritance
+comments: true
 ---
 
 When we talk about classes and subclasses, what are we talking about usually? Inheritance! That is, the ability of one object to have access to the properties and methods of another object.<!--excerpt-->

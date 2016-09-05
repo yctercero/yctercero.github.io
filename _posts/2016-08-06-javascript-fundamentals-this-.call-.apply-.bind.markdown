@@ -3,6 +3,7 @@ layout: post
 title:  "JavaScript Fundamentals - 'this', .call, .apply, and .bind"
 date:   2016-08-06 17:10:47 -0500
 categories: hackreactor javascript this .call .bind .apply
+comments: true
 ---
 
 This (not ‘this’) is a continuation of my previous post on fundamentals.

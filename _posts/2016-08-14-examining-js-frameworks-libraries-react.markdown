@@ -3,6 +3,7 @@ layout: post
 title:  "Examining JS Frameworks/Libraries - React"
 date:   2016-08-17 15:10:47 -0500
 categories: javascript hackreactor react libraries frameworks
+comments: true
 ---
 
 You've probably heard all these framework/library names thrown around and wondered where the heck to start. In the next couple posts I am going to explore a couple of these frameworks/libraries by building a simple weather app with each one. <!--excerpt-->You may also be wondering why I'm being annoying and overslashing (frameworks/libraries). A framework usually provides an environment or structure you can build on, while a library provides you with tools you can build with.
@@ -458,6 +459,8 @@ This was a simple app, but hopefully you learned a bit about React from getting 
 
 The benefits I see in using React is that it is well-documented, flexible, allows your apps to be scalable, and is easy to set up.
 
+You can checkout the code [here].
+
 ![/downloads/final.png](/downloads/final.png){:class="img-responsive"}
 
 
@@ -471,3 +474,4 @@ The benefits I see in using React is that it is well-documented, flexible, allow
 [callback function]: https://en.wikipedia.org/wiki/Callback_(computer_programming)
 ['states']: https://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html#how-state-works
 ['this']: https://yctercero.github.io/hackreactor/javascript/this/.call/.bind/.apply/2016/08/06/javascript-fundamentals-this-.call-.apply-.bind.html
+[here]: https://github.com/yctercero/react-weather-app
