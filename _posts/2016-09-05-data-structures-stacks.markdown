@@ -9,13 +9,13 @@ permalink: /:title/
 
 Stacks are a linear data structure that you have probably already seen used without realizing it. Have you ever clicked your browser's back button? Ever washed dishes? Then you already know more about stacks than you may have thought.  <!--excerpt-->
 
-Stacks are commonly referred to as being 'last in, first out' (LIFO). That is, as you add to your stack, you add to the top of it, and when you grab from your stack, you grab the item at the very top which also happens to be the most recent item you added. 
+Stacks are commonly referred to as being  'last in, first out' (LIFO). That is, as you add to your stack, you add to the top of it, and when you grab from your stack, you grab the item at the very top, which also happens to be the item you most recently added. 
 
-At a minimum, stacks allow you to add new elements to the top of the stack (push), and remove elements from the top of the stack (pop).
+So, at a minimum, stacks allow you to add new elements to the top of the stack (push), and remove elements from the top of the stack (pop).
 
 You'll likely see stacks implemented in one of two ways - as an array, or as a singly-linked-list. 
 
-For now, we'll just explore its implementation as an array. We'll need a place to store our items, 'this.storage' and a way to keep track of how many items we have in our stack, 'this.size'. 
+For now, we'll just explore its implementation as an array. We'll need a place to store our items, 'this.storage,' and a way to keep track of how many items we have in our stack, 'this.size'. 
 
 {% highlight js %}
     var Stack = function() {
@@ -25,7 +25,7 @@ For now, we'll just explore its implementation as an array. We'll need a place t
 {% endhighlight %}
 
 
-Now, we need a way to add to the stack. We should be able to feed in the value of the item we are adding and have this method add it to the top of the stack.
+Now, we need a way to add to the stack. We should be able to feed in the value of the item we are adding and have this method add it to the top of the stack. Remember that we also need to keep track of how many items are in the stack, so each time we add we will need to increase the 'size' variable.
 
 {% highlight js %}
     Stack.prototype.push = function(value) {
