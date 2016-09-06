@@ -32,7 +32,7 @@ Now that we know what components we need, let's create them. Here's a quick outl
 We'll be creating each of our components using ES6 and [JSX]- it allows us to reference our components like we would any regular HTML element - writing each in a seperate file that will be compiled by [Babel] into code that will be compatible across browsers.
 
 **App.jsx**
-<pre><code class="jsx">
+{% highlight jsx %}
   var App = () => {
       return (
           <div>
@@ -46,7 +46,7 @@ We'll be creating each of our components using ES6 and [JSX]- it allows us to re
           </div>
       )
   }
-</code></pre>
+{% endhighlight %}
 
 **Search.jsx**
 {% highlight jsx %}
