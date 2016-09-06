@@ -13,7 +13,7 @@ You realize pretty quickly a) that's not going to be possible (at least not when
 
 I ended up choosing to use the MEAN stack to create 'So Fetch' - an app to help coordinate your pet's care.
 
-![/downloads/soFetch.png](/downloads/soFetch.png){:class="img-responsive"}
+![/downloads/soFetch2.png](/downloads/soFetch2.png){:class="img-responsive"}
 
 I enjoyed working with the MEAN stack and felt like it all flowed pretty seemlessly. On the front-end, Angular was extremely easy and quick to set up. Additionally, having the routing being done by the UI Router greatly simplified the back-end. 
 
