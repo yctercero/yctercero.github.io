@@ -9,7 +9,7 @@ permalink: /:title/
 
 Aren't sure how much you do or do not know? Give yourself 36 hours to build a full-stack web app from scratch. That was the challenge we were given last week. <!--excerpt-->This was really the first time that we were given the liberty to build whatever we wanted from scratch, so naturally you start thinking of all the amazing functionality you're going to build out and how it will definitely, possibly take off and allow you to never have to work again.
 
-You realize pretty quickly a) that's not going to be possible (at least not when it's your first go at building a full-stack app from scratch), b) that's not the point of building an MVP, and c) the value of a team. While the time constraint at first seemed frustrating, it was a great exercise, in that it forced me to manage my time more wisely, it brought together everything I learned in the last 5 weeks, and challenged me to break functionality down into as small pieces as I could. 
+You realize pretty quickly **a)** that's not going to be possible (at least not when it's your first go at building a full-stack app from scratch), **b)** that's not the point of building an MVP, and **c)** the value of a team. While the time constraint at first seemed frustrating, it was a great exercise, in that it forced me to manage my time more wisely, it brought together everything I learned in the last 5 weeks, and challenged me to break functionality down into as small pieces as I could. 
 
 I ended up choosing to use the MEAN stack to create 'So Fetch' - an app to help coordinate your pet's care.
 
@@ -17,7 +17,7 @@ I ended up choosing to use the MEAN stack to create 'So Fetch' - an app to help 
 
 I enjoyed working with the MEAN stack and felt like it all flowed pretty seemlessly. On the front-end, Angular was extremely easy and quick to set up. Additionally, having the routing being done by the UI Router greatly simplified the back-end. 
 
-The overall hits of the project:
+**The overall hits of the project:**
 
 1. Got a login/signup working
 2. Pages routing correctly
@@ -28,7 +28,7 @@ The overall hits of the project:
 7. Successfully launched to Heroku
 8. Look decent enough to call attention to users
 
-The overall misses of the project:
+**The overall misses of the project:**
 
 1. No use of token or session so users can access certain pages without being logged in
 2. All users see all logs - need to create link between users table, log table, and pets table
