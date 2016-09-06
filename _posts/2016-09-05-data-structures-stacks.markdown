@@ -7,7 +7,9 @@ comments: true
 permalink: /:title/
 ---
 
-Stacks are a linear data structure that you have probably already seen used without realizing it. Have you ever clicked your browser's back button? Ever washed dishes? Then you already know more about stacks than you may have thought.  <!--excerpt-->
+When I heard we would be learning data structures at HackReactor, what came to mind was the demagogan from 'Stranger Things'. Data structures seemed like this incredibly complex, kinda intimidating topic that I knew I couldn't ignore. <!--excerpt-->And yes, data strucutres can definitely get complex, which is why we start small and go from there. If a particular data structure interests you, dig deeper! 
+
+Stacks are a linear data structure that you have probably already seen used without realizing it. Have you ever clicked your browser's back button? Ever washed dishes? Then you already know more about stacks than you may have thought.  
 
 Stacks are commonly referred to as being  'last in, first out' (LIFO). That is, as you add to your stack, you add to the top of it, and when you grab from your stack, you grab the item at the very top, which also happens to be the item you most recently added. 
 
@@ -80,5 +82,3 @@ To put it all together, we get the following:
 ![/downloads/stack.png](/downloads/stack.png){:class="img-responsive"}
 
 I'll keep touching on some data structures every couple days. 
-
-When I heard we would be learning data structures at HackReactor, what came to mind was the demagogan from 'Stranger Things'. Data structures seemed like this incredibly complex, kinda intimidating topic that I knew I couldn't ignore. And yes, data strucutres can definitely get complex, which is why we start small and go from there. If a particular data structure interests you, dig deeper! 
