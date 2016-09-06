@@ -7,7 +7,7 @@ comments: true
 permalink: /:title/
 ---
 
-Aren't sure how much you do or do not know? Give yourself 36 hours to build a full-stack web app from scratch. That was the challenge we were given last week. This was really the first time that we were given the liberty to build whatever we wanted from scratch, so naturally you start thinking of all the amazing functionality you're going to build out and how it will definitely, possibly take off and allow you to never have to work again.
+Aren't sure how much you do or do not know? Give yourself 36 hours to build a full-stack web app from scratch. That was the challenge we were given last week. <!--excerpt-->This was really the first time that we were given the liberty to build whatever we wanted from scratch, so naturally you start thinking of all the amazing functionality you're going to build out and how it will definitely, possibly take off and allow you to never have to work again.
 
 You realize pretty quickly a) that's not going to be possible (at least not when it's your first go at building a full-stack app from scratch), b) that's not the point of building an MVP, and c) the value of a team. While the time constraint at first seemed frustrating, it was a great exercise, in that it forced me to manage my time more wisely, it brought together everything I learned in the last 5 weeks, and challenged me to break functionality down into as small pieces as I could. 
 
