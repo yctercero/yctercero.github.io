@@ -185,6 +185,7 @@ header .site-nav {
 }
 body > header nav ul{
   list-style-type: none;
+  width: 350px;
 }
 body > header nav ul li{
 	float: left;
@@ -211,7 +212,7 @@ body > header nav ul li{
 
 	header nav ul li:last-of-type a{
 		float: left;
-		width: 50%;
+		width: 32%;
 	}
 body > header .fa{
 	color: white;
