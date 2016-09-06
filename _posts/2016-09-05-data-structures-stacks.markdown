@@ -79,4 +79,6 @@ To put it all together, we get the following:
 
 ![/downloads/stack.png](/downloads/stack.png){:class="img-responsive"}
 
+I'll keep touching on some data structures every couple days. 
+
 When I heard we would be learning data structures at HackReactor, what came to mind was the demagogan from 'Stranger Things'. Data structures seemed like this incredibly complex, kinda intimidating topic that I knew I couldn't ignore. And yes, data strucutres can definitely get complex, which is why we start small and go from there. If a particular data structure interests you, dig deeper! 
