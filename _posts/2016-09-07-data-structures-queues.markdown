@@ -29,7 +29,7 @@ We'll need a place to store our items, 'this.storage,' and we'll also need a way
 
 Hold up? Why can't we just use a variable 'size', like we did with stacks, that we increase and decrease as we add and take away from our queue. Remember, that in our stack implementation, we were using the value of 'size' as the key to store the item with in the 'storage' object. Well, what would it look like if we did that with a queue?
 
-![/downloads/queue.png](/downloads/queue.png){:class="img-responsive"}
+![/downloads/queue5.png](/downloads/queue5.png){:class="img-responsive"}
 
 We can see that we run into some serious conflict. Our 'storage' would no longer be representative of our queue. Using the 'size' variable as the key with which to store items would mean that items could be overwritten.
 
