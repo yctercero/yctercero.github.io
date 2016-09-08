@@ -7,9 +7,9 @@ comments: true
 permalink: /:title/
 ---
 
-Earlier this week I wrote a post on a quick review of **[stacks]**. Data structures can be a bit scary, but if you break them down and try to tackle them one step at a time, I promise, you can tackle them.<!--excerpt--> If a particular data structure interests you, dig deeper! 
+Earlier this week I wrote a post on a quick review of **[stacks]**. Data structures can be a bit scary, but if you break them down and take them on one step at a time, I promise, you can tackle them.<!--excerpt--> If a particular data structure interests you, dig deeper! 
 
-Queues, like stacks, are a linear data structure that you have have also probably seen used. Your web browser uses a queue to handle events such as clicks, scrolling, etc.. An even more real world example is waiting in line at a deli or Starbucks. The baristas (ideally) process the orders in the order in which they come in (apologies for the redundancy). This is why queues are commonly referred to as being  **'first in, first out' (FIFO)**. That is, when you add to your queue, you add the item to the end of the line, and when you remove an item, you remove it from the start of the line, which corresponds to the first item you inserted.
+Queues, like stacks, are a linear data structure that you have have also probably seen used. Your web browser uses a queue to handle events such as clicks, scrolling, etc. An even more real world example is waiting in line at a deli or Starbucks. The baristas (ideally) process the orders in the order in which they come in. This is why queues are commonly referred to as being  **'first in, first out' (FIFO)**. That is, when you add to your queue, you add the item to the end of the line, and when you remove an item, you remove it from the start of the line, which corresponds to the first item you inserted.
 
 So, at a minimum, queues allow you to add new elements to the end of the queue **(enqueue)**, and remove elements from the front of the queue **(dequeue)**.
 
@@ -27,7 +27,7 @@ We'll need a place to store our items, 'this.storage,' and we'll also need a way
     };
 {% endhighlight %}
 
-Hold up? Why can't we just use a variable 'size', like we did with stacks, that we increase and decrease as we add and take away from our queue. Remember, that in our stack implementation, we were using the value of 'size' as the key to store the item with in the 'storage' object. Well, what would it look like if we did that with a queue?
+Hold up? Why can't we just use a variable 'size', like we did with stacks, that we increase and decrease as we add and take away from our queue? Remember that in our stack implementation we were using the value of 'size' as the key to store the item with in the 'storage' object. Well, what would it look like if we did that with a queue?
 
 ![/downloads/queues5.png](/downloads/queues5.png){:class="img-responsive"}
 
