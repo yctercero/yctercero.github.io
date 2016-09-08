@@ -13,7 +13,7 @@ Queues, like stacks, are a linear data structure that you have have also probabl
 
 So, at a minimum, queues allow you to add new elements to the end of the queue **(enqueue)**, and remove elements from the front of the queue **(dequeue)**.
 
-You'll likely see stacks implemented in one of two ways - as an array, or as a singly-linked-list. 
+You'll likely see queues implemented in one of two ways - as an array, or as a singly-linked-list. 
 
 For now, we'll just explore its implementation as an array. 
 
