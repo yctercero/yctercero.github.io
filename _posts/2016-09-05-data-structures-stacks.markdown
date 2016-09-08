@@ -81,4 +81,9 @@ To put it all together, we get the following:
 
 ![/downloads/stack.png](/downloads/stack.png){:class="img-responsive"}
 
-I'll keep touching on some data structures every couple days. 
+Interested in stack time complexity? Check out the [Big-O Complexity Chart].
+
+Next, explore **[queues]**!
+ 
+[Big-O Complexity Chart]: http://bigocheatsheet.com/
+[queues]: https://yctercero.github.io/data-structures-queues/
