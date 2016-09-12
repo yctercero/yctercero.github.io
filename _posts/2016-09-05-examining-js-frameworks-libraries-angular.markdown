@@ -9,7 +9,7 @@ permalink: /:title/
 
 This is part of a 'series' of sorts. My previous post focused on React and can be **[found here]**. <!--excerpt-->
 
-Quick disclaimer, this is not meant to be a tutorial. For the past weeks at HackReactor we've been diving into a couple of these frameworks/libraries and I thought that in addition to this helping me solidify my understanding of them, seeing example code can hopefully help others picking up these frameworks/libraries explore what makes each one unique and when/why you may want to use one over the other depending on your project. Let's get started with AngularJS below.
+For the past weeks at HackReactor we've been diving into a couple of these frameworks/libraries and I thought that in addition to this helping me solidify my understanding of them, seeing example code can hopefully help others picking up these frameworks/libraries explore what makes each one unique and when/why you may want to use one over the other depending on your project. Let's get started with AngularJS below.
 
 You can find the code for the weather app on my **[GitHub here]**.
 
@@ -101,7 +101,7 @@ We have these static html pages now that show a form and some information, but w
 
 This is where controllers and $scope come in handy. Controllers facilitate the flow of data and $scope is an object, used within the controller, whose properties and methods are accessible from within the controller's corresponding view (HTML doc).
 
-And what about modules? Angular is modular. It allows us to separate specific app functionality into 'modules', making them resusable. We use modules to contain our controllers so the $scope in the controller that deals with the search form does not collide with the $scope in the controller responsible for rendering the weather data. 
+And what about modules? Angular is modular. It allows us to separate specific app functionality into 'modules', making them reusable. We use modules to contain our controllers so the $scope in the controller that deals with the search form does not collide with the $scope in the controller responsible for rendering the weather data. 
 
 Let's look at what the barebones controller looks like for 'searchForm.html' and 'displayWeather.html'.
 
@@ -234,7 +234,7 @@ There's an article, **[Angular .service() or .factory(), the actual answer]**, t
 
 To give you a quick summary (though I suggest you take a look at the article):
 
-1. **Service** - think pseudoclassical instantiation pattern. A service is a constructor that is invoked using the 'new' keyword. It's properties are made available to the controller by passing the service in as an argument.
+1. **Service** - think pseudoclassical instantiation pattern. A service is a constructor that is invoked using the 'new' keyword. Its properties are made available to the controller by passing the service in as an argument.
 2. **Factory** - you create and return an object whose properties become available to the controller by passing the factory in as an argument. You are not bound by any one instantiation pattern.
 
 So where would we want to use a service in this weather app? We need to be able to store the data that comes back from the api call to then display it elsewhere. I've decided to use a factory here that holds a function that fetches the weather data and a variable that will hold what is sent back.

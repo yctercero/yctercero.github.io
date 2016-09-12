@@ -9,7 +9,7 @@ permalink: /:title/
 
 You've probably heard all these framework/library names thrown around and wondered where the heck to start. In the next couple posts I am going to explore a couple of these frameworks/libraries by building a simple weather app with each one. <!--excerpt-->You may also be wondering why I'm being annoying and overslashing (frameworks/libraries). A framework usually provides an environment or structure you can build on, while a library provides you with tools you can build with.
 
-Quick disclaimer, this is not meant to be a tutorial. This past week at HackReactor we've been diving into a couple of these frameworks/libraries and I thought that in addition to this helping me solidify my understanding of them, seeing example code can hopefully help others picking up these frameworks/libraries explore what makes each one unique and when/why you may want to use one over the other depending on your project. Let's get started with React below.
+This past week at HackReactor we've been diving into a couple of these frameworks/libraries and I thought that in addition to this helping me solidify my understanding of them, seeing example code can hopefully help others picking up these frameworks/libraries explore what makes each one unique and when/why you may want to use one over the other depending on your project. Let's get started with React below.
 
 Here's what we'll be building - [react weather app].
 
