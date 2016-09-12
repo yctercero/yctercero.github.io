@@ -3,6 +3,8 @@ layout: post
 title:  "Examining JS Frameworks/Libraries - AngularJS"
 date:   2016-09-12 15:10:47 -0500
 categories: javascript hackreactor angular libraries frameworks
+comments: true
+permalink: /:title/
 ---
 
 This is part of a 'series' of sorts. My previous post focused on React and can be **[found here]**. <!--excerpt-->
@@ -198,7 +200,7 @@ We are storing the data in the SearchController as $scope.weather. From within d
 
 **displayWeather.html**
 
-{% highlight js %}
+{% highlight html %}
     <div>
         <a class="button" href="#/search">Back to Search</a>
         <h2>{{ weather.city.name }}</h2>
