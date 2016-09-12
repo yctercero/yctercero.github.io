@@ -206,7 +206,7 @@ We are storing the data in the SearchController as $scope.weather. From within d
         <h2>{{"{{"}} weather.city.name {{}}"}}</h2>
         <div id="todaysWeather">
             <h3>Today</h3>
-            <img src="{{"{{"}} makeUrl(weather.list[0].weather[0].icon) {{"}}"}} " />
+            <img src='{{"{{"}} makeUrl(weather.list[0].weather[0].icon) {{"}}"}} ' />
             <div class='mainTemp'>{{"{{"}} farenheit(weather.list[0].temp.day) {{"}}"}} &deg;</div>
             <div class='minTemp'><span class='orange'>Min:</span> {{"{{"}} farenheit(weather.list[0].temp.min) {{"}}"}} &deg;</div>
             <div class='maxTemp'><span class='orange'>Max:</span> {{"{{"}} farenheit(weather.list[0].temp.max) {{"}}"}} &deg;</div>
@@ -215,7 +215,7 @@ We are storing the data in the SearchController as $scope.weather. From within d
     <ul id='weeksWeather' class='clearfix'>
         <li ng-repeat="item in weather.list">
             <h4>{{"{{"}} getDay(item.dt) }{{"}}"}}</h4>
-            <img ng-src="{{"{{"}} makeUrl(item.weather[0].icon) {{"}}"}} " />
+            <img ng-src=' {{"{{"}} makeUrl(item.weather[0].icon) {{"}}"}} ' />
             <div class='mainTemp'>{{"{{"}} farenheit(item.temp.day) {{"}}"}}&deg;</div>
         </li>
     </ul>
