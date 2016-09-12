@@ -350,7 +350,7 @@ And that's it! Feel free to explore the code on GitHub. In the process of learni
 
 It may be a bit tough to tell from such a simple app, but Angular is quite a powerful framework. I can understand some peoples frustrations with it in feeling that it takes over the reins too much. But that also means that it takes care of a lot of the minute details allowing you to focus on functionality. 
 
-Having now worked some with Angular, React, and Backbone, I found that React was the easiest to pick up but that I had an easier time scaling up an app's functionality with Angular. However, that can also be due to the fact that these technologies aim to fill different voids. Backbone was the hardest for me to pick up, but I also see it's value in it being a lightweight framework. 
+Having now worked some with Angular, React, and Backbone, I found that React was the easiest to pick up but that I had an easier time scaling up an app's functionality with Angular. Backbone was the hardest for me to pick up, but I also see it's value in it being a lightweight framework. Each of these technologies aim to fill different voids.
 
 At the end of the day, I think which technologies you use should be determined on a project by project basis. 
 
