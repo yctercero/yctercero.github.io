@@ -228,7 +228,7 @@ A directive used above that comes in handy is 'ng-repeat'. It is essentially the
 
 The very first time I played around with Angular and tried to create a small app, I put everything that could possibly fit in the controller. But that defeats the purpose. 
 
-You'll quickly see why you shouldn't when you try to persist data. Controllers, like components in React, are dismantled when they are not in use. Any data stored in $scope at that point is scrubbed clean. 
+You'll quickly see why you shouldn't when you try to persist data. Controllers, like components in React, are dismantled when they are not in use. Any data stored in $scope at that point is scrubbed clean. That's where services come in. Data persistence is one of their many uses. 
 
 There's an article, **[Angular .service() or .factory(), the actual answer]**, that explains this very clearly. 
 
