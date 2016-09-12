@@ -97,7 +97,7 @@ Our other two sub-views will be search.html, where the user enters a city to be 
 
 We have these static html pages now that show a form and some information, but we need a way to interact with them. The form will need to be able to take the city name the user typed in and use it in the API call to search for that city's weather and the displayWeather.html needs to display the corresponding data that is received from the API call. As is, these documents are not able to do that. 
 
-This is where controllers and $scope come in handy. Controllers facilitate the flow of data and $scope is an object, created within the controller, whose properties and methods are accessible from within the controller's corresponding view (HTML doc).
+This is where controllers and $scope come in handy. Controllers facilitate the flow of data and $scope is an object, used within the controller, whose properties and methods are accessible from within the controller's corresponding view (HTML doc).
 
 And what about modules? Angular is modular. It allows us to separate specific app functionality into 'modules', making them resusable. We use modules to contain our controllers so the $scope in the controller that deals with the search form does not collide with the $scope in the controller responsible for rendering the weather data. 
 
@@ -190,15 +190,15 @@ We know the data coming back from the API will look something like:
                 "night": 293.86,
                 "eve": 293.86,
 
-    . . . . . . . . . . . . . .
+    // and so on...
 
 {% endhighlight %}
 
-We are storing the data in the SearchController as $scope.weather. Fromwithin displayWeather.html, we can now use expressions to extract what data we want.
+We are storing the data in the SearchController as $scope.weather. From within displayWeather.html, we can now use expressions to extract what data we want.
 
 **displayWeather.html**
 
-{% highlight js %}
+{% highlight txt %}
     <div>
         <a class="button" href="#/search">Back to Search</a>
         <h2>{{ weather.city.name }}</h2>
