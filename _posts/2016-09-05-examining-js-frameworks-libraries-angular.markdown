@@ -201,13 +201,14 @@ We are storing the data in the SearchController as $scope.weather. From within d
 **displayWeather.html**
 
 {% highlight html %}
+    <!-- Please ignore the extra quotation marks showing, issue with the syntax highlighter -->
     <div>
         <a class="button" href="#/search">Back to Search</a>
         <h2>{{"{{"}} weather.city.name {{}}"}}</h2>
         <div id="todaysWeather">
             <h3>Today</h3>
-            <img src='{{"{{"}} makeUrl(weather.list[0].weather[0].icon) {{"}}"}} ' />
-            <div class='mainTemp'>{{"{{}} farenheit(weather.list[0].temp.day) {{"}}"}} &deg;</div>
+            <img src=' {{"{{"}} makeUrl(weather.list[0].weather[0].icon) {{"}}"}} ' />
+            <div class='mainTemp'>{{"{{"}} farenheit(weather.list[0].temp.day) {{"}}"}} &deg;</div>
             <div class='minTemp'><span class='orange'>Min:</span> {{"{{"}} farenheit(weather.list[0].temp.min) {{"}}"}} &deg;</div>
             <div class='maxTemp'><span class='orange'>Max:</span> {{"{{"}} farenheit(weather.list[0].temp.max) {{"}}"}} &deg;</div>
         </div>
@@ -223,18 +224,18 @@ We are storing the data in the SearchController as $scope.weather. From within d
 
 A directive used above that comes in handy is 'ng-repeat'. It is essentially the equeivalent to the 'for in' loop. A new '<li>' will be created for each item in the weather.list array.
 
-#### Services
+### Services
 
 The very first time I played around with Angular and tried to create a small app, I put everything that could possibly fit in the controller. But that defeats the purpose. 
 
 You'll quickly see why you shouldn't when you try to persist data. Controllers, like components in React, are dismantled when they are not in use. Any data stored in $scope at that point is scrubbed clean. 
 
-There's an article, **'[Angular .service() or .factory(), the actual answer]'**, that explains this very clearly. 
+There's an article, **[Angular .service() or .factory(), the actual answer]**, that explains this very clearly. 
 
 To give you a quick summary (though I suggest you take a look at the article):
 
-1. Service - think pseudoclassical instantiation pattern. A service is a constructor that is invoked using the 'new' keyword. It's properties are made available to the controller by passing the service in as an argument.
-2. Factory - you create and return an object whose properties become available to the controller by passing the factory in as an argument. You are not bound by any one instantiation pattern.
+1. **Service** - think pseudoclassical instantiation pattern. A service is a constructor that is invoked using the 'new' keyword. It's properties are made available to the controller by passing the service in as an argument.
+2. **Factory** - you create and return an object whose properties become available to the controller by passing the factory in as an argument. You are not bound by any one instantiation pattern.
 
 So where would we want to use a service in this weather app? We need to be able to store the data that comes back from the api call to then display it elsewhere. I've decided to use a factory here that holds a function that fetches the weather data and a variable that will hold what is sent back.
 
@@ -270,6 +271,7 @@ We can now update our controllers.
 {% highlight js %}
     angular.module('app.search', [])
     .controller('SearchController', ['$scope', '$location', 'WeatherAPI', function($scope, $location, WeatherAPI){
+        
         $scope.city;
 
         $scope.search = function(){
@@ -342,11 +344,15 @@ Using AngularUI Router, we can decide what views to render when. There's a whole
     });   
 {% endhighlight %}
 
+And that's it! Feel free to explore the code on GitHub. In the process of learning these frameworks I found it helpful to build the same small app using each technology to try and understand both its strong and weak points. 
+
 ### Wrap Up
 
 It may be a bit tough to tell from such a simple app, but Angular is quite a powerful framework. I can understand some peoples frustrations with it in feeling that it takes over the reins too much. But that also means that it takes care of a lot of the minute details allowing you to focus on functionality. 
 
-Having now worked some with Angular, React, and Backbone, I found that React was the easiest to pick up but that I had an easier time scaling up an app's functionality with Angular. However, that can also be due to the fact that these technologies aim to fill different voids. Backbone was the hardest for me to pick up, but I also see it's value in it being a lightweight framework. At the end of the day, I think which technologies you use should be determined on a project by project basis. 
+Having now worked some with Angular, React, and Backbone, I found that React was the easiest to pick up but that I had an easier time scaling up an app's functionality with Angular. However, that can also be due to the fact that these technologies aim to fill different voids. Backbone was the hardest for me to pick up, but I also see it's value in it being a lightweight framework. 
+
+At the end of the day, I think which technologies you use should be determined on a project by project basis. 
 
 You can find the code for the weather app on my **[GitHub here]**.
 
