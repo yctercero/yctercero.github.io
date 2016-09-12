@@ -360,7 +360,7 @@ To view the app in action, **[click here]**.
 
 
 [here for a list]: https://docs.angularjs.org/api/ng/directive
-[AngularJS: Factory vs Service vs Provider]: https://toddmotto.com/factory-versus-service
+[Angular .service() or .factory(), the actual answer]: https://toddmotto.com/factory-versus-service
 [click here]: http://bit.ly/2cdfEYU
 [GitHub here]: https://github.com/yctercero/angular-weather-app
 [found here]: https://yctercero.github.io/examining-js-frameworks-libraries-react/
