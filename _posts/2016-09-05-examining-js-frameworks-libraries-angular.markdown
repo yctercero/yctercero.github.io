@@ -207,7 +207,7 @@ We are storing the data in the SearchController as $scope.weather. From within d
         <div id="todaysWeather">
             <h3>Today</h3>
             <img src='{{"{{"}} makeUrl(weather.list[0].weather[0].icon) {{"}}"}} ' />
-            <div class='mainTemp'>{{"{{"}} farenheit(weather.list[0].temp.day) {{"}}"}} &deg;</div>
+            <div class='mainTemp'>{{"{{}} farenheit(weather.list[0].temp.day) {{"}}"}} &deg;</div>
             <div class='minTemp'><span class='orange'>Min:</span> {{"{{"}} farenheit(weather.list[0].temp.min) {{"}}"}} &deg;</div>
             <div class='maxTemp'><span class='orange'>Max:</span> {{"{{"}} farenheit(weather.list[0].temp.max) {{"}}"}} &deg;</div>
         </div>
