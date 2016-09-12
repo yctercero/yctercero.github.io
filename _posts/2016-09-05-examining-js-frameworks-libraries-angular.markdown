@@ -13,7 +13,8 @@ You can find the code for the weather app on my **[GitHub here]**.
 
 To view the app in action, **[click here]**.
 
-In the early stages of learning Angular, I found it to be a bit frustrating beacause it feels like a lot of the work is abstracted. I was spending more time trying to understand the layout of the framework and less time coding. My goal here will be to try to help you quickly understand the framework, so you can see how powerful it is, and get to building sooner.  
+In the early stages of learning Angular, I found it to be a bit frustrating beacause it feels like a lot of the work is abstracted. I was spending more time trying to understand the layout of the framework and less time coding. My goal here will be to try to help you quickly understand the framework, so you can see how powerful it is, and get to building sooner.
+  
 Angular is an incredibly robust framework that allows you to write a lot less code than you would otherwise need to were you to try to achieve the same outcomes using vanilla JavaScript or JQuery. It's most popularly used to create single page applications (SPA). Single page applications are exactly what the name implies, it is an app where only one page, index.html, is served and the rest of the routing is conducted by the front end framework. To a user, it will seem like a normal, non-single page app - if they click on profile, they'll see the url change to .../profile, but there wasn't any HTTP request sent like there normally is on non-single page apps.
 
 ### Views
