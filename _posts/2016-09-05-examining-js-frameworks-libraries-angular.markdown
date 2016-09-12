@@ -14,7 +14,7 @@ You can find the code for the weather app on my **[GitHub here]**.
 To view the app in action, **[click here]**.
 
 In the early stages of learning Angular, I found it to be a bit frustrating beacause it feels like a lot of the work is abstracted. I was spending more time trying to understand the layout of the framework and less time coding. My goal here will be to try to help you quickly understand the framework, so you can see how powerful it is, and get to building sooner.
-  
+
 Angular is an incredibly robust framework that allows you to write a lot less code than you would otherwise need to were you to try to achieve the same outcomes using vanilla JavaScript or JQuery. It's most popularly used to create single page applications (SPA). Single page applications are exactly what the name implies, it is an app where only one page, index.html, is served and the rest of the routing is conducted by the front end framework. To a user, it will seem like a normal, non-single page app - if they click on profile, they'll see the url change to .../profile, but there wasn't any HTTP request sent like there normally is on non-single page apps.
 
 ### Views
@@ -37,7 +37,9 @@ The index.html serves as the entry point. It loads all the angular modules we ne
         <link rel="stylesheet" href="styles/style.css">
         <link href='https://fonts.googleapis.com/css?family=Lato:400,100,300,700' rel='stylesheet' type='text/css'>
 
+        <!-- Angular -->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+        <!-- AngularUI Router -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
     </head>
     <body>
@@ -48,6 +50,7 @@ The index.html serves as the entry point. It loads all the angular modules we ne
         <script src="app/displayWeather.js"></script>
         <script src="app/search.js"></script>
         <script src="app/services/services.js"></script>
+        <!-- Holds the API key -->
         <script src="app/config.js"></script>
         <script src="app/app.js"></script>
     </body>
@@ -94,7 +97,7 @@ Our other two sub-views will be search.html, where the user enters a city to be 
 
 We have these static html pages now that show a form and some information, but we need a way to interact with them. The form will need to be able to take the city name the user typed in and use it in the API call to search for that city's weather and the displayWeather.html needs to display the corresponding data that is received from the API call. As is, these documents are not able to do that. 
 
-This is where controllers and $scope come in handy. Controllers facilitate the flow of data and $scope is the model. $scope is an object, created within the controller, whose properties and methods are accessible from within the controller's corresponding view (HTML doc).
+This is where controllers and $scope come in handy. Controllers facilitate the flow of data and $scope is an object, created within the controller, whose properties and methods are accessible from within the controller's corresponding view (HTML doc).
 
 And what about modules? Angular is modular. It allows us to separate specific app functionality into 'modules', making them resusable. We use modules to contain our controllers so the $scope in the controller that deals with the search form does not collide with the $scope in the controller responsible for rendering the weather data. 
 
@@ -103,22 +106,22 @@ Let's look at what the barebones controller looks like for 'searchForm.html' and
 **search.js**
 
 {% highlight js %}
-    angular.module('app.search', [])
-    .controller('SearchController', function($scope){
+    angular.module('app.search', [ ])
+    .controller('SearchController', ['$scope', function($scope){
         $scope.city;
 
         $scope.search = function($scope.city){
             // some function that sends request to api 
             // using city user typed in
         }
-    });
+    }]);
 {% endhighlight %}
 
 **displayWeather.js**
 
 {% highlight js %}
-    angular.module('app.displayWeather', [])
-    .controller('DisplayWeatherController', function($scope){
+    angular.module('app.displayWeather', [ ])
+    .controller('DisplayWeatherController', ['$scope', function($scope){
         // will hold data that we get from API
         $scope.weather = {};
 
@@ -141,14 +144,14 @@ Let's look at what the barebones controller looks like for 'searchForm.html' and
             return "http://openweathermap.org/img/w/" + url + ".png";
         }
 
-    });
+    }]);
 {% endhighlight %}
 
 #### Directives & Expressions
 
 I said that properites and methods on $scope are accessible from within the controllers corresponding view (HTML) - directives and expressions are what you use within your HTML to access it. 
 
-Directives begin with 'ng-' and many exist - see [here for a list]. One you'll see used in our searchForm.html is 'ng-submit'. We use it to specify what method we want called when a form is submitted. Another popular one is 'ng-model' that binds the input to the corresponding property in the $scope. 
+Directives begin with 'ng-' and many exist - see **[here for a list]**. One you'll see used in our searchForm.html is 'ng-submit'. We use it to specify what method we want called when a form is submitted. Another popular one is 'ng-model' that binds the input to the corresponding property in the $scope. 
 
 **searchForm.html**
 {% highlight html %}
@@ -161,40 +164,41 @@ Directives begin with 'ng-' and many exist - see [here for a list]. One you'll s
     </div>
 {% endhighlight %}
 
-Expressions are essentially JavaScript written between {{ }} that gets evaluated. 
+Expressions are essentially JavaScript written between brackets that gets evaluated. 
 
 We know the data coming back from the API will look something like:
 
-{% highlight js %}
+{% highlight json %}
     {"city":
         {
-            "id":4930956,
-            "name":"Boston",
-            "coord":{"lon":-71.059769,"lat":42.358429},
-            "country":"US",
-            "population":0
+            "id": 4930956,
+            "name": "Boston",
+            "coord": {"lon": -71.059769,"lat": 42.358429},
+            "country": "US",
+            "population": 0
         },
-    "cod":"200",
-    "message":0.0098,
-    "cnt":7,
+    "cod": "200",
+    "message": 0.0098,
+    "cnt": 7,
     "list":[
         {
-            "dt":1471104000,
+            "dt": 1471104000,
             "temp":{
-                "day":293.86,
-                "min":293.86,
-                "max":293.86,
-                "night":293.86,
-                "eve":293.86,
+                "day": 293.86,
+                "min": 293.86,
+                "max": 293.86,
+                "night": 293.86,
+                "eve": 293.86,
 
-    . . .
+    . . . . . . . . . . . . . .
+
 {% endhighlight %}
 
-We are storing the data in the SearchController as $scope.weather. We can then use expressions to extract what data we want from within displayWeather.html.
+We are storing the data in the SearchController as $scope.weather. Fromwithin displayWeather.html, we can now use expressions to extract what data we want.
 
 **displayWeather.html**
 
-{% highlight html %}
+{% highlight js %}
     <div>
         <a class="button" href="#/search">Back to Search</a>
         <h2>{{ weather.city.name }}</h2>
@@ -215,7 +219,7 @@ We are storing the data in the SearchController as $scope.weather. We can then u
     </ul>
 {% endhighlight %}
 
-A directive used above that comes in handy is 'ng-repeat'. It is essentially the equeivalent to the 'for in' loop. A new <li> will be created for each item in the weather.list array.
+A directive used above that comes in handy is 'ng-repeat'. It is essentially the equeivalent to the 'for in' loop. A new '<li>' will be created for each item in the weather.list array.
 
 #### Services
 
