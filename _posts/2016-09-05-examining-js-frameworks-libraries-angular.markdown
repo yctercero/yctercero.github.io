@@ -198,7 +198,7 @@ We are storing the data in the SearchController as $scope.weather. From within d
 
 **displayWeather.html**
 
-{% highlight txt %}
+{% highlight angularjs %}
     <div>
         <a class="button" href="#/search">Back to Search</a>
         <h2>{{ weather.city.name }}</h2>
