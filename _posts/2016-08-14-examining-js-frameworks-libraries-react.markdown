@@ -11,7 +11,11 @@ You've probably heard all these framework/library names thrown around and wonder
 
 Quick disclaimer, this is not meant to be a tutorial. This past week at HackReactor we've been diving into a couple of these frameworks/libraries and I thought that in addition to this helping me solidify my understanding of them, seeing example code can hopefully help others picking up these frameworks/libraries explore what makes each one unique and when/why you may want to use one over the other depending on your project. Let's get started with React below.
 
-React, unlike Backbone, is a library, not a framework. It's a toolkit that abstracts certain layers (namely the DOM) to make it easier to create interactive UIs. If you are wondering how it fits into MVC (Model View Component) frameworks, as it notes in the [documentation], "Many people choose to think of React as the V in MVC". React breaks down the user interface into components and subcomponents that render HTML. Instead of re-rendering the entire DOM everytime data changes, React is able to detect which parts of your DOM contain the changed data and re-render only those components.
+Here's what we'll be building - [react weather app].
+
+You can checkout the code [here].
+
+React, unlike Backbone or Angular, is a library, not a framework. It's a toolkit that abstracts certain layers (namely the DOM) to make it easier to create interactive UIs. If you are wondering how it fits into MVC (Model View Component) frameworks, as it notes in the [documentation], "Many people choose to think of React as the V in MVC". React breaks down the user interface into components and subcomponents that render HTML. Instead of re-rendering the entire DOM everytime data changes, React is able to detect which parts of your DOM contain the changed data and re-render only those components.
 
 ### Components
 
@@ -230,7 +234,7 @@ What about with 'WeeksWeather'? Instead of hardcoding in seven 'WeekdayWeather' 
       return (
           <ul id='weeksWeather' className='clearfix'>
               {week.map((day) =>
-                  <WeekdayWeather day={day} />
+                  <WeekdayWeather day={day} key={day.dt} />
               )}
               <!-- <WeekdayWeather day={week[0]} /> -->
               <!-- <WeekdayWeather day={week[1]} /> -->
@@ -466,7 +470,7 @@ You can checkout the code [here].
 
 
 
-
+[react weather app]: http://yadayadacreative.com/projects/react/
 [documentation]: https://facebook.github.io/react/docs/why-react.html
 [Babel]: https://babeljs.io/
 [map()]: https://lodash.com/docs#map
