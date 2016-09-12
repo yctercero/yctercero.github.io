@@ -20,6 +20,7 @@ markdown: kramdown
 highlighter: rouge
 google_analytics: 'UA-81343022-1'
 
-gems: [jekyll-paginate]
+gems: 
+  - jekyll-angular
 
 excerpt_separator: "<!--excerpt-->"
