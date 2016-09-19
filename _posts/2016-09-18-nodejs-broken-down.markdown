@@ -7,7 +7,7 @@ comments: true
 permalink: /:title/
 ---
 
-Node.js - so what? There's a lot of really great **[documentation]** on Node.js, but when I was first circling Node.js, I just wanted to know, at it's most basic, in plain English, what is it. <!--excerpt-->Node.js extends JavaScript's functionality - it allows us developers to do things like read files, write to files, and interact with a database using JavaScript. These are all things that prior to Node.js, or rather without it, you would have to do with a server-side language like PHP. With Node.js, you are able to write full-stack applications, that is build out both the front and back-end, using JavaScript.
+Node.js - so what? There's a lot of really great **[documentation]** on Node.js, but when I was first circling Node.js, I just wanted to know, at it's most basic, in plain English, what is it? <!--excerpt-->Node.js extends JavaScript's functionality - it allows us developers to do things like read files, write to files, and interact with a database using JavaScript. These are all things that prior to Node.js, or rather without it, you would have to do with a server-side language like PHP. With Node.js, you are able to write full-stack applications, that is build out both the front and back-end, using JavaScript.
 
 So what's the official definition of NodeJS? On their site they describe it as follows: 
 
