@@ -7,7 +7,7 @@ comments: true
 permalink: /:title/
 ---
 
-Node.js - let's break it down and answer a simple question, so what? We've all heard of it, tried it, maybe even actively use it, but do we really know what it is? Would you be able to explain it in plain and simple English? After using it for some time myself, and reading lots of really great **[documentation]**, this is what I got - **Node.js is a platform which extends JavaScript's basic functionality.** It allows us to do really cool things like read files, write to files, and interact with a database...using only JavaScript! These are all things that, prior to Node.js, you would have had to do with a server-side language like PHP. Luckily, Node.js allows us to maintain language consistency through all of our code and write both the front AND back-end in only Jacascript.
+Node.js - let's break it down and answer a simple question, so what? We've all heard of it, tried it, maybe even actively use it, but do we really know what it is? Would you be able to explain it in plain and simple English? <!--excerpt-->After using it for some time myself, and reading lots of really great **[documentation]**, this is what I got - **Node.js is a platform which extends JavaScript's basic functionality.** It allows us to do really cool things like read files, write to files, and interact with a database...using only JavaScript! These are all things that, prior to Node.js, you would have had to do with a server-side language like PHP. Luckily, Node.js allows us to maintain language consistency through all of our code and write both the front AND back-end in only Jacascript.
 
 So what's the official definition of Node.js? Their documentation describes it as follows: 
 
