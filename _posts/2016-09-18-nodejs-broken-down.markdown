@@ -7,9 +7,9 @@ comments: true
 permalink: /:title/
 ---
 
-Node.js - let's break it down and answer a simple question, so what? There's a lot of really great **[documentation]** on Node.js, but when I was first circling Node.js, I just wanted to know, at it's most basic, in plain English, what is it? <!--excerpt-->Node.js extends JavaScript's functionality - it allows us developers to do things like read files, write to files, and interact with a database using JavaScript. These are all things that prior to Node.js, or rather without it, you would have to do with a server-side language like PHP. With Node.js, you are able to write full-stack applications, that is, build out both the front and back-end, using JavaScript.
+Node.js - let's break it down and answer a simple question, so what? We've all heard of it, tried it, maybe even actively use it, but do we really know what it is? Would you be able to explain it in plain and simple English? After using it for some time myself, and reading lots of really great **[documentation]**, this is what I got - **Node.js is a platform which extends JavaScript's basic functionality.** It allows us to do really cool things like read files, write to files, and interact with a database...using only JavaScript! These are all things that, prior to Node.js, you would have had to do with a server-side language like PHP. Luckily, Node.js allows us to maintain language consistency through all of our code and write both the front AND back-end in only Jacascript.
 
-So what's the official definition of Node.js? On their site they describe it as follows: 
+So what's the official definition of Node.js? Their documentation describes it as follows: 
 
 > Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js' package ecosystem, npm, is the largest ecosystem of open source libraries in the world.
 
@@ -105,7 +105,11 @@ I really enjoy working with Node.js and can't wait to see what is to come.
 
 Let's just put all the 'Plain English' snippets from above together to get a really basic description of Node.js:
 
-> Node.js provides you with the all the basic tools you need to interact with your operating system. One of those tools provided, is the Chrome V8 Engine that is used to expand functionality and allows the computer to understand your JavaScript code. A core feature of Node.js are events that allow our JavaScript and all the C/C++ code behind it to communicate with each other what tasks need to be done, when tasks are done, and what to do when a task is complete. Node.js is able to deal with multiple tasks all at once making it extremely efficient. There is more to Node.js than just what it comes with out of the box and you can access these packages of code that extend functionality through npm. 
+1. Node.js provides you with the all the basic tools you need to interact with your operating system. 
+2. One of those tools provided, is the Chrome V8 Engine that is used to expand functionality and allows the computer to understand your JavaScript code. 
+3. A core feature of Node.js are events that allow our JavaScript and all the C/C++ code behind it to communicate with each other what tasks need to be done, when tasks are done, and what to do when a task is complete. 
+4. Node.js is able to deal with multiple tasks all at once making it extremely efficient. 
+5. There is more to Node.js than just what it comes with out of the box and you can access these packages of code that extend functionality through npm. 
 
 If you're interested at taking a deeper dive into Node.js, I suggest looking through the various links/resources sprinkled in the article:
 
@@ -114,6 +118,9 @@ If you're interested at taking a deeper dive into Node.js, I suggest looking thr
 3. [Libuv] - documentation
 4. [Overview of Blocking vs Non-Blocking]
 5. [The Node.js Event Loop, Timers, and proces.nextTick()]
+
+
+**Special thanks to [@Micael Olorunnisola] for helping edit!
 
 
 [V8 Engine]: https://developers.google.com/v8/
@@ -127,3 +134,4 @@ If you're interested at taking a deeper dive into Node.js, I suggest looking thr
 [The Node.js Event Loop, Timers, and proces.nextTick()]: https://github.com/nodejs/node/blob/master/doc/topics/the-event-loop-timers-and-nexttick.md
 [documentation]: https://nodejs.org/en/
 [npm]: https://www.npmjs.com/
+[@Micael Olorunnisola]: http://www.inductivereasoning.michaelolorunnisola.com/
