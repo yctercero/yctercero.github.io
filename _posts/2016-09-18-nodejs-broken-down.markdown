@@ -13,64 +13,74 @@ So what's the official definition of Node.js? Their documentation describes it a
 
 > Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js' package ecosystem, npm, is the largest ecosystem of open source libraries in the world.
 
-Let's break this down, and then take a look at some code.
+Let's break this definition down and tackle it one bit at a time. We'll analyze the following Node.js attributes: its runtime, V8 engine, event-driven model, non-blocking I/O model, and package ecosystem. 
 
 ### JavaScript Runtime
 
-If you start googling 'runtime' you're going to get a whole lot of answers and even some differing opinions. In the context of the above Node.js definition, the runtime refers to the environment set up needed in order for the program to do its job. 
+In the context of the above Node.js definition, the runtime refers to the environment set up needed in order for the program to do its job. If you start googling "Javascript runtime" you're going to get a lot of definitions, answers, and differing opinions on what it actually is. This variation is largely due to the inherent difference that exists between client side and server side JavaScript. 
 
-When you are dealing with JavaScript on the client-side, part of the runtime environment includes the broswer and V8 engine - the front-end runtime provides us developers with the setup we need to write code that can interact with the DOM. 
+On the client side, we are writing JavaScript that will be interacting with the browser, specifically, the DOM. On the server side, using Node.js, we are writing JavaScript to interact with the operating system. In both cases, we utilize the V8 engine (explained in the next section), but Node.js also comes with additional core modules that expand functionality and are loaded into our document using require statements. The confusion comes in deciding what makes up the JavaScript runtime. Some see the V8 engine as being separate from the JavaScript runtime, and others include it in their definition.    
 
-On the server-side, Node.js comes with core modules which can be loaded into our document using 'require()', one of which is the V8 module, that allow us to use JavaScript to interact with our operating system.    
+Regardless of how you decide to define the JavaScript runtime, it is important to understand the different roles that JavaScript plays in the client side and on the server side.  
 
 **Plain English: Node.js provides you with the all the basic tools you need to interact with your operating system.**  
 
 ### Chrome's V8 JS Engine
 
-The **[V8 engine]** is what takes the JavaScript we write and converts it into machine code, that is, it converts it to a language that the computer processor can understand. What is interesting is that the V8 engine itself is written in C++, and in fact, so is Node.js. Node.js takes advantage of the capabilities of C++, like being able to read files, write to files, and ineract with your operating system, and makes those capabilities available to JavaScript through the V8 Engine. 
+The **[V8 engine]** is what takes the awesome and bug-free JavaScript we write and converts it into machine code, a language that your computer processor can understand. Digging more into the documentation, I found that the V8 engine itself is written in C++, and in fact, so is Node.js! This came as a surprise because if you've worked with client side libraries and frameworks, you know that those are written in JavaScript. Node.js takes advantage of the capabilities of C++, like file reading and writing, as well as operating system interactions. Node.js makes those capabilities available to JavaScript through the V8 Engine. 
 
-So in essence, there's a whole lot of C++ code listening for certain instructions written in JavaScript. Let's take 'fs.readFile()' as an example. The V8 engine interprets it and triggers the C++ code block that goes ahead and reads a file for us (more details below).
+So in essence, there's a whole lot of C++ code listening for certain instructions written in JavaScript. Let's take the function 'fs.readFile()' as an example. the function triggers some hidden C++ code which reads the specified file, and returns its contents for us to display or manipulate.
 
-In fact, Node.js includes a whole **[section on addons]** in their documentation. Using C++ you can write your own modules to extend functionality and load it into Node.js.
+What's great is that Node.js includes a whole **[section on addons]** in their documentation. If you're familiar with C++, you can use it to write your own modules to extend functionality and load it into Node.js.
 
-Anthony Alicea does an amazing job of explaining all this in his course, **[Learn and Understand NodeJS]**.  
+As an aside, Anthony Alicea does an amazing job of explaining this in great detail in his course, **[Learn and Understand NodeJS]**.  
 
-**Plain English: One of those tools provided, is the Chrome V8 Engine that is used to expand functionality and allows the computer to understand your JavaScript code.**
+**Plain English: One of those tools provided, is the Chrome V8 Engine that is used to expand JavaScript's core functionality and allows the computer to understand your JavaScript code.**
 
 ### Event Driven
 
-This one is really important to understand. It helps me to think of an event as the combination of the emitter objects and listener functions that are key to making Node.js efficient. You can think of the emitter object as an object that sends out a flare to say 'Hey, listen up, this task here was completed.' The listener functions are the code that gets executed once the particular event emmitter they are listening for sends up the flare. 
+The event-driven model can be a bit tricky to understand, but it is a really important concept because it is in great part what makes Node.js so efficient. Node.js has something called emitter objects. You can think of the emitter object as an object that sends out a flare to say 'Hey, listen up, this task here was completed.' Node.js also has listener functions. The listener functions is the code that gets executed once the particular event emmitter they are listening for sends up the flare. It helps me to think of an event as the combination of an emitter object and listener function.
 
-Here is where you start to see the two parts of Node.js. There's the part we developers interact with, that is our JavaScript file and then there are the processes working in the background - all the C/C++ interacting with the operating system. The library that Node.js uses to interact with the operating system is called **[libuv]**. And both of these parts, our JavaScript and libuv, deal with events of varying kind. 
+When discussing events in Node.js, there are two types of events. There are the events that occur in the half we directly interact with, that is, our JavaScript file. Then there are also the events being processed in the background by the C/C++ interacting with the operating system. To be more precise, **[libuv]** is the library that Node.js uses to interact with the operating system and which deals with these background events. 
 
-An example of how this all plays out goes as follows: 1) In your JavaScript you tell it, 'Please get this document for me and read the file'. When you finish doing that log to the console 'I am finished reading the file'. In the meantime, I'm gonna continue on.' 2) This message is translated by the V8 engine and libuv goes off and does what you asked of it. 3) The operating system responds to libuv's request and an event is added to a [queue] indicating that the task was complete. 4) Libuv's event loop, which is constantly checking the queue, sees that there is something in the queue. 5) Libuv alerts our V8 Engine that 'Hey, I finished doing what you asked of me'. 6) The message 'I am finished reading the file' is logged to the console.
+So how do these two halves, our JavaScript and libuv, interact? Here's a really simplified example of how our JavaScript interacts with libuv: 
 
-Obviously, this is an extremely simplified example, but that's essentially what is happening over and over again in Node.js. For an in depth look at the event loop, checkout this article, **[The Node.js Event Loop, Timers, and proces.nextTick()]**. 
+1. In your JavaScript you tell it, 'Please get this document for me and read the file. When you finish doing that log to the console "I am finished reading the file." In the meantime, I'm gonna continue on executing this JavaScript one line at a time.' 
+2. This message is processed by the V8 engine and libuv sends off a request to the operating system - 'Please find and grab this file for me. When you're done, let me know.' 
+3. The operating system responds to libuv's request and an event is added to libuv's [queue] indicating that the task was complete. 
+4. Libuv's event loop, which is constantly checking the queue, sees that there is something in the queue. 
+5. Libuv processes it and alerts our V8 Engine that 'Hey, I finished doing what you asked of me. Here's that file you asked for.'
+6. The message 'I am finished reading the file' is logged to the console.
 
-**Plain English: A core feature of Node.js are events that allow our JavaScript and all the C/C++ code behind it to communicate with each other what tasks need to be done, when tasks are done, and what to do when a task is complete.**   
+Obviously, this is an extremely simplified example, but that's essentially what is happening over and over again behind the scenes. Libuv's event loop is actually really interesting to read about. I know, nerding out a bit here, but if you're interested, I recomment you checkout this article, **[The Node.js Event Loop, Timers, and proces.nextTick()]**. 
+
+**Plain English: A core feature of Node.js are events that allow our JavaScript and all the C/C++ code behind it to communicate with each other. Events help Node.js know what tasks need to be done, when tasks are done, and what to do when a task is complete.**   
 
 ### Non-Blocking I/O
 
-I/O stands for Input/Output. On their site, Node.js links to a great article, **[Overview of Blocking vs Non-Blocking]**, that defines I/O as follows:
+Non-blocking I/O, that sounds kind of technical and complicated...it's not! I/O stands for Input/Output. I was trying to find a good way of describing it, but this article, **[Overview of Blocking vs Non-Blocking]**, has a really great, easy to understand definition:
 
 > "I/O" refers primarily to interaction with the system's disk and network supported by libuv.
 
-Non-blocking simply means that when in your JavaScript you ask for a file to be read, the V8 engine does not need to pause and wait for that task to be completed, it can continue executing the JavaScript that follows and then execute the designated callback
-when libuv notifies it that the task was done. 
+Remember in the example above we saw that libuv interacts with the operating system? Those interactions are what I/O refers to.
 
-This is why you have likely heard that Node.js is asynchronous. An important distinction here is that the V8 Engine is synchronous, and therefore your JavaScript is still being executed one line at a time, even within Node.js. It is Node.js as a whole that is asynchronous. One thousand people can be asking for files at the same time and instead of having to pause the execution of your JavaScript and process each request one after another, libuv, being multi-threaded, can deal with all these requests and allow V8 to continue on with its job. Imagine how terribly long you would have to wait if Google could only process one search request at a time. 
+Now, for non-blocking. Simply put, it means that numerous interactions can be occuring between libuv and the operating system at the *same time*. This is why you have likely heard that Node.js is asynchronous, and it is! However, it is important to understand that while libuv is able to run asynchronously, JavaScript remains synchronous - the V8 engine still executes the JavaScript one line at a time. But how can these two things work in tandem? We use callbacks to allow JavaScript to continue executing while libuv goes off an completes a task we asked it to do. When that task is finished, JavaScript will invoke the callback you gave it. At no point is JavaScript doing two tasks at one time. 
 
-**Plain English: Node.js is able to deal with multiple tasks all at once making it extremely efficient.**
+But this is great! It means that we are able to interact with our operating system in a really efficient manner. Imagine how terribly long you would have to wait if Google could only process one search request at a time. 
+
+**Plain English: Node.js is able to deal with multiple tasks all at once making it extremely efficient and asynchronous.**
 
 ### Package Ecosystem
 
-Node.js comes with a lot of core modules, but there are many many more modules out there that you can install and share using **[npm]** and then include in your project using require().
+Endless possibilities! If you've worked with Node.js you've probably become familiar with npm. Node.js comes with a lot of core modules out of the box, but there are many many more modules out there that you can install and share using **[npm]** and then include in your project using require statements.
 
-**Plain English: There is more to Node.js than just what it comes with out of the box and you can access these packages of code that extend functionality through npm.** 
+Why not just include all modules at once? There are *a lot* of modules and often times you only need a few to run your program. Having all these modules installed that are not being used would be a waste of space and decrease your program's efficiency. 
+
+**Plain English: There is more to Node.js than what it comes with out of the box, and you can access these packages of code that extend functionality using npm.** 
 
 ### So What's It Look Like
 
-So what does it take to build a server using Node.js?
+So what does it take to build a server using Node.js? It's surprisingly simple! You may have imagined hundreds of lines of code and some really complex stuff, but at its most basic, it's just a few lines.
 
 {% highlight js %}
     // ===== SETUP =====
@@ -82,7 +92,7 @@ So what does it take to build a server using Node.js?
     const ip = "127.0.0.1";
 
     // ===== CREATE SERVER =====
-    var server = http.createServer( (request, response) => {
+    const server = http.createServer( (request, response) => {
         // Here is where you could check the request and route it to the
         // appropriate place - is the request coming from '/home' or '/profile' etc...
         const statusCode = 200;
@@ -97,19 +107,20 @@ So what does it take to build a server using Node.js?
     server.listen(port, ip);
 {% endhighlight %}
 
-### So What
+### So What?
 
-So what?! Node.js is powerful and extremely efficient. It allows developers to build full-stack using only one language, JavaScript. Not only can you now use JavaScript to interact with the DOM, you can also use it to interact with your operating system. This is not to say that you should therefore not learn any other languages, you definitely should! But it's impressive to see what can be done with just JavaScript. 
+So what?! Node.js is a powerful and extremely efficient platform. It takes advantage of another language's features (C/C++), and allows us to build full-stack apps using only one language... JavaScript! Not only can you now use JavaScript to interact with the DOM, you can also use it to interact with your operating system. This is not to say that you should therefore not learn any other languages, you definitely should! But it's impressive to see what can be done with just JavaScript. It's pretty cool to think of the ways you can use one programming language to enhance another. I personally really enjoy working with Node.js and can't wait to see what is to come. 
 
-I really enjoy working with Node.js and can't wait to see what is to come. 
-
-Let's just put all the 'Plain English' snippets from above together to get a really basic description of Node.js:
+To wrap up let's just put all the 'Plain English' snippets from above together to get a really basic description of Node.js:
 
 1. Node.js provides you with the all the basic tools you need to interact with your operating system. 
-2. One of those tools provided, is the Chrome V8 Engine that is used to expand functionality and allows the computer to understand your JavaScript code. 
-3. A core feature of Node.js are events that allow our JavaScript and all the C/C++ code behind it to communicate with each other what tasks need to be done, when tasks are done, and what to do when a task is complete. 
-4. Node.js is able to deal with multiple tasks all at once making it extremely efficient. 
-5. There is more to Node.js than just what it comes with out of the box and you can access these packages of code that extend functionality through npm. 
+2. One of those tools provided, is the Chrome V8 Engine that is used to expand JavaScript's core functionality and allows the computer to understand your JavaScript code. 
+3. A core feature of Node.js are events that allow our JavaScript and all the C/C++ code behind it to communicate with each other. Events help Node.js know what tasks need to be done, when tasks are done, and what to do when a task is complete. 
+4. Node.js is able to deal with multiple tasks all at once making it extremely efficient and asynchronous. 
+5. There is more to Node.js than just what it comes with out of the box and you can access these packages of code that extend functionality using npm. 
+
+
+### Resources 
 
 If you're interested at taking a deeper dive into Node.js, I suggest looking through the various links/resources sprinkled in the article:
 
@@ -120,7 +131,7 @@ If you're interested at taking a deeper dive into Node.js, I suggest looking thr
 5. [The Node.js Event Loop, Timers, and proces.nextTick()]
 
 
-**Special thanks to [@Micael Olorunnisola] for helping edit!
+**Special thanks to [@Michael Olorunnisola] for helping edit!
 
 
 [V8 Engine]: https://developers.google.com/v8/
