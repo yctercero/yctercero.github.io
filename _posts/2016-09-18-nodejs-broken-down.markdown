@@ -84,7 +84,7 @@ So what does it take to build a server using Node.js?
         // and specifying what format the response is in
         response.writeHead(statusCode, { 'Content-Type': 'text/plain' });
         // This is what would get sent back to the client
-        response.end('This is all it takes at it's most basic!');
+        response.end('This is all it takes at it\'s most basic!');
     });
 
     // Start it up! 
