@@ -13,7 +13,7 @@ So what's the official definition of Node.js? Their documentation describes it a
 
 > Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js' package ecosystem, npm, is the largest ecosystem of open source libraries in the world.
 
-Let's break this definition down and tackle it one bit at a time. We'll analyze the following Node.js attributes: its runtime, V8 engine, event-driven model, non-blocking I/O model, and package ecosystem. 
+Let's break this definition down and tackle it one bit at a time. We'll analyze the following Node.js attributes: its **runtime**, **V8 engine**, **event-driven model**, **non-blocking I/O nature**, and **package ecosystem**. 
 
 ### JavaScript Runtime
 
